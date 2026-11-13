@@ -68,7 +68,7 @@ if (ftr) ftr.outerHTML = `
         <p class="muted" style="max-width:34ch">Furniture, bins, and custom food trailers — all at liquidation prices.</p>
       </div>
       <div><h4>Shop</h4>${navItems.slice(1).map(([, h, t]) => `<a href="${h}">${t}</a>`).join("")}</div>
-      <div><h4>Contact</h4><a href="${telLink()}">${SITE.phoneDisplay}</a><a href="${smsLink("Hi USA Liquidation!")}">Text Us</a></div>
+      <div><h4>Contact</h4><a href="${telLink()}">${SITE.phoneDisplay}</a><a href="${smsLink("Hi USA Liquidation!")}">Text Us</a><a href="mailto:${SITE.email}">${SITE.email}</a></div>
       <div><h4>Visit</h4><a href="${SITE.mapsUrl}" target="_blank" rel="noopener">${SITE.address}<br/>${SITE.city}</a><span class="muted">Tue–Sun · 9am–6pm<br/>Closed Mondays</span></div>
     </div>
     <div class="f-bottom"><span>© ${new Date().getFullYear()} USA Liquidation</span><span class="f-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a></span><span>Prices and stock change daily.</span></div>
@@ -108,8 +108,8 @@ document.querySelectorAll("[data-maps]").forEach(a => (a.href = SITE.mapsUrl));
   const s = document.createElement("script");
   s.src = "https://widgets.leadconnectorhq.com/loader.js";
   s.setAttribute("data-resources-url", "https://widgets.leadconnectorhq.com/chat-widget/loader.js");
-  // Home page = A2P text opt-in widget (carriers require it to be the ONLY phone/SMS-consent form on the
-  // URL registered for A2P). Every other page = the navy live chat widget.
-  s.setAttribute("data-widget-id", PAGE === "home" ? "6af6626bf31f8c02e64028fc" : "6af39a92f5284e7ffe2cc05a");
+  // Main chat = the A2P text opt-in widget. Carriers require it to be the ONLY phone/SMS-consent form on any
+  // page it's on, so the Food Trailers page (which has the quote form) uses the older live chat widget instead.
+  s.setAttribute("data-widget-id", PAGE === "trailers" ? "6af39a92f5284e7ffe2cc05a" : "6af6626bf31f8c02e64028fc");
   document.body.appendChild(s);
 })();
