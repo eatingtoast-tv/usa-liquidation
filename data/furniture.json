@@ -1,13 +1,28 @@
 {
   "_note": "Synced from Notion > USA Liquidation > Website > Website Inventory",
+  "categories": [
+    "Living Room",
+    "Bedroom",
+    "Dining",
+    "Office",
+    "Outdoor",
+    "Decor & Other"
+  ],
+  "conditions": [
+    "New",
+    "New - Open Box",
+    "Like New",
+    "Good",
+    "Fair"
+  ],
   "items": [
     {
       "id": "417bc49a-f653-8169-9f56-db63e8a966b9",
       "name": "Brown Leather Recliner",
       "category": "Living Room",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 425,
+      "retail": 950,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -20,43 +35,39 @@
       "id": "417bc49a-f653-814e-b762-f336bb72978b",
       "name": "Outdoor Sofa Set With Side Tables",
       "category": "Outdoor",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 899,
+      "retail": 1400,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Modern outdoor sofas with gray cushions, black frames and matching side tables.",
       "photos": [
-        "images/notion/f336bb72978b-0-0d92ae9592.jpg",
-        "images/notion/f336bb72978b-1-1ce6816dc9.jpg"
+        "images/notion/f336bb72978b-0-090b4a3fcd.jpg"
       ]
     },
     {
       "id": "417bc49a-f653-81e3-9d4d-da6334ec575e",
       "name": "Fire Pit Patio Conversation Set",
       "category": "Outdoor",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 1600,
+      "retail": 2499,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Outdoor conversation set with a fire pit table, loveseat and swivel lounge chairs. Still in protective wrap.",
       "photos": [
-        "images/notion/da6334ec575e-0-ff2ffb131d.jpg",
-        "images/notion/da6334ec575e-1-2f9bb3e602.jpg",
-        "images/notion/da6334ec575e-2-f84bd5884d.jpg",
-        "images/notion/da6334ec575e-3-7a946b4ccd.jpg"
+        "images/notion/da6334ec575e-0-e77f468f2c.jpg"
       ]
     },
     {
       "id": "417bc49a-f653-8157-9111-eafd25126121",
       "name": "Gray Leather Power Reclining Sofa",
       "category": "Living Room",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 250,
+      "retail": 1200,
+      "condition": "Good",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -69,9 +80,9 @@
       "id": "417bc49a-f653-81a3-b073-f55695f8982a",
       "name": "Square Patio Dining Set With Umbrella",
       "category": "Outdoor",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 1499,
+      "retail": 2400,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -84,9 +95,9 @@
       "id": "417bc49a-f653-816e-8b23-e683c795b473",
       "name": "Round Patio Set With Fringe Umbrella",
       "category": "Outdoor",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 1299,
+      "retail": 2499,
+      "condition": "Like New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -99,9 +110,9 @@
       "id": "417bc49a-f653-81a5-8015-c1c171125bec",
       "name": "Patio Dining Set With Umbrella",
       "category": "Outdoor",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 1350,
+      "retail": 2500,
+      "condition": "Like New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -114,25 +125,24 @@
       "id": "417bc49a-f653-81a1-ae33-c9a7dda9eaff",
       "name": "Cream Channel-Tufted Platform Bed",
       "category": "Bedroom",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 450,
+      "retail": 699,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Low platform bed with a tall cream channel-tufted headboard and wood-trim base.",
       "photos": [
-        "images/notion/c9a7dda9eaff-0-6a60c77f55.jpg",
-        "images/notion/c9a7dda9eaff-1-74b0ae712b.jpg"
+        "images/notion/c9a7dda9eaff-0-139253d05b.jpg"
       ]
     },
     {
       "id": "417bc49a-f653-8165-a175-c4b185cc5cc1",
       "name": "Silver Shell Headboard Bed",
       "category": "Bedroom",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 550,
+      "retail": 899,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -145,9 +155,9 @@
       "id": "417bc49a-f653-81ec-afeb-cbde21fc6348",
       "name": "White Upholstered Storage Bed",
       "category": "Bedroom",
-      "price": 0,
-      "retail": null,
-      "condition": "—",
+      "price": 950,
+      "retail": 1600,
+      "condition": "New",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -160,16 +170,15 @@
       "id": "417bc49a-f653-8121-a6d2-d428c6fe9208",
       "name": "Oak Dining Table & Chairs",
       "category": "Dining",
-      "price": 0,
+      "price": 850,
       "retail": null,
-      "condition": "—",
+      "condition": "New - Open Box",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Long light-oak dining table with upholstered cream chairs. Seats a big family.",
       "photos": [
-        "images/notion/d428c6fe9208-0-d9adb4549a.jpg",
-        "images/notion/d428c6fe9208-1-91c04588ee.jpg"
+        "images/notion/d428c6fe9208-0-910f9fb0f5.jpg"
       ]
     },
     {
@@ -178,14 +187,13 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Sage green sofa with wood legs and bolster pillows. Modern, comfy and on-trend.",
       "photos": [
-        "images/notion/d418a345c074-0-6015d33ccd.jpg",
-        "images/notion/d418a345c074-1-f28ac2e121.jpg"
+        "images/notion/d418a345c074-0-1875849270.jpg"
       ]
     },
     {
@@ -194,7 +202,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -209,7 +217,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -224,7 +232,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -239,14 +247,13 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Gray fabric sectional with a pull-out sleeper and storage chaise. Great for guests and small spaces.",
       "photos": [
-        "images/notion/e2d7607622f8-0-3fde7cbc39.jpg",
-        "images/notion/e2d7607622f8-1-d2819deba6.jpg"
+        "images/notion/e2d7607622f8-0-982697e380.jpg"
       ]
     },
     {
@@ -255,7 +262,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -270,7 +277,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -285,7 +292,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -300,7 +307,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -315,7 +322,7 @@
       "category": "Outdoor",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -331,15 +338,14 @@
       "category": "Outdoor",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Oval cast-aluminum patio table with ornate scroll design, chairs and swivel chairs, all with cream cushions.",
       "photos": [
-        "images/notion/d550a1bb4673-0-80fdb94ed5.jpg",
-        "images/notion/d550a1bb4673-1-5f847a4054.jpg",
-        "images/notion/d550a1bb4673-2-b4a6789dad.jpg"
+        "images/notion/d550a1bb4673-0-c4151873b3.jpg",
+        "images/notion/d550a1bb4673-1-e378b96982.jpg"
       ]
     },
     {
@@ -348,15 +354,14 @@
       "category": "Dining",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Dark wood trestle dining table with six slat-back chairs with black cushioned seats.",
       "photos": [
-        "images/notion/f67acd91b272-0-a71bb04dde.jpg",
-        "images/notion/f67acd91b272-1-cd99aa7050.jpg",
-        "images/notion/f67acd91b272-2-525d08f95e.jpg"
+        "images/notion/f67acd91b272-0-01f7d3bc9b.jpg",
+        "images/notion/f67acd91b272-1-3e38cf8667.jpg"
       ]
     },
     {
@@ -365,14 +370,13 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Ivory fabric sofa with a chaise ottoman. Clean, modern look with deep, comfy seats.",
       "photos": [
-        "images/notion/c693910515ec-0-a52138c251.jpg",
-        "images/notion/c693910515ec-1-8a21a9b341.jpg"
+        "images/notion/c693910515ec-0-d3ec1d9ee8.jpg"
       ]
     },
     {
@@ -381,7 +385,7 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
@@ -397,15 +401,14 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Big light-gray modular sectional in a U shape with a matching ottoman. Pieces can be rearranged to fit your space.",
       "photos": [
-        "images/notion/c8ced86954ef-0-0a8c1337a0.jpg",
-        "images/notion/c8ced86954ef-1-3779943055.jpg",
-        "images/notion/c8ced86954ef-2-f3858aa386.jpg"
+        "images/notion/c8ced86954ef-0-83311e1983.jpg",
+        "images/notion/c8ced86954ef-1-f1dc6ed588.jpg"
       ]
     },
     {
@@ -414,14 +417,13 @@
       "category": "Living Room",
       "price": 0,
       "retail": null,
-      "condition": "—",
+      "condition": "",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
       "description": "Cream sofa and matching loveseat with carved wood trim and pillow backs. Classic, cozy set for a living room or den.",
       "photos": [
-        "images/notion/ee3ad952fd2f-0-2381978750.jpg",
-        "images/notion/ee3ad952fd2f-1-3b87f9b809.jpg"
+        "images/notion/ee3ad952fd2f-0-9f6c0ab9e8.jpg"
       ]
     }
   ]
