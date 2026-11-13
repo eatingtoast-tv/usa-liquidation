@@ -1,4 +1,20 @@
 {
   "_note": "Synced from Notion > USA Liquidation > Website > Website Inventory",
-  "items": []
+  "items": [
+    {
+      "id": "417bc49a-f653-8189-8829-cdbd24fd2023",
+      "name": "TEST - Cloud Sync Dresser",
+      "category": "Bedroom",
+      "price": 149,
+      "retail": null,
+      "condition": "Good",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/cdbd24fd2023-0-b8b7c4cf7b.jpg"
+      ]
+    }
+  ]
 }
