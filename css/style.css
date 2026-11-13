@@ -605,3 +605,4 @@ select.sort {
   .m-gallery { min-height: 0; aspect-ratio: 4 / 5; }
   .modal-box .m-gallery > img { aspect-ratio: auto; }
 }
+.m-gallery { align-self: stretch; }
