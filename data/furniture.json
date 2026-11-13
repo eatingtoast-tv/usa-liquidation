@@ -2,18 +2,426 @@
   "_note": "Synced from Notion > USA Liquidation > Website > Website Inventory",
   "items": [
     {
-      "id": "417bc49a-f653-8189-8829-cdbd24fd2023",
-      "name": "TEST - Cloud Sync Dresser",
-      "category": "Bedroom",
-      "price": 149,
+      "id": "417bc49a-f653-8169-9f56-db63e8a966b9",
+      "name": "Brown Leather Recliner",
+      "category": "Living Room",
+      "price": 0,
       "retail": null,
-      "condition": "Good",
+      "condition": "—",
       "status": "Available",
       "added": "2026-11-13",
       "dims": "—",
-      "description": "",
+      "description": "Dark brown leather recliner with an accent pillow. Classic, comfy reading chair.",
       "photos": [
-        "images/notion/cdbd24fd2023-0-b8b7c4cf7b.jpg"
+        "images/notion/db63e8a966b9-0-8316223292.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-814e-b762-f336bb72978b",
+      "name": "Outdoor Sofa Set With Side Tables",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Modern outdoor sofas with gray cushions, black frames and matching side tables.",
+      "photos": [
+        "images/notion/f336bb72978b-0-0d92ae9592.jpg",
+        "images/notion/f336bb72978b-1-1ce6816dc9.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81e3-9d4d-da6334ec575e",
+      "name": "Fire Pit Patio Conversation Set",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Outdoor conversation set with a fire pit table, loveseat and swivel lounge chairs. Still in protective wrap.",
+      "photos": [
+        "images/notion/da6334ec575e-0-ff2ffb131d.jpg",
+        "images/notion/da6334ec575e-1-2f9bb3e602.jpg",
+        "images/notion/da6334ec575e-2-f84bd5884d.jpg",
+        "images/notion/da6334ec575e-3-7a946b4ccd.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8157-9111-eafd25126121",
+      "name": "Gray Leather Power Reclining Sofa",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Light gray leather sofa with power recline. Plush pillow-top seating.",
+      "photos": [
+        "images/notion/eafd25126121-0-b572624ab7.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81a3-b073-f55695f8982a",
+      "name": "Square Patio Dining Set With Umbrella",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Square patio dining table with cushioned chairs, swivel chairs and umbrella.",
+      "photos": [
+        "images/notion/f55695f8982a-0-09d0c1861e.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-816e-8b23-e683c795b473",
+      "name": "Round Patio Set With Fringe Umbrella",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Round patio table with cushioned chairs and a fringe market umbrella. Resort-style look.",
+      "photos": [
+        "images/notion/e683c795b473-0-a4fad25d7f.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81a5-8015-c1c171125bec",
+      "name": "Patio Dining Set With Umbrella",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Rectangular patio dining table with chairs, swivel chairs and a large umbrella.",
+      "photos": [
+        "images/notion/c1c171125bec-0-e4e0c10223.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81a1-ae33-c9a7dda9eaff",
+      "name": "Cream Channel-Tufted Platform Bed",
+      "category": "Bedroom",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Low platform bed with a tall cream channel-tufted headboard and wood-trim base.",
+      "photos": [
+        "images/notion/c9a7dda9eaff-0-6a60c77f55.jpg",
+        "images/notion/c9a7dda9eaff-1-74b0ae712b.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8165-a175-c4b185cc5cc1",
+      "name": "Silver Shell Headboard Bed",
+      "category": "Bedroom",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Glam bed frame with a silver shell-shaped tufted headboard and white base.",
+      "photos": [
+        "images/notion/c4b185cc5cc1-0-6ce00123c0.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81ec-afeb-cbde21fc6348",
+      "name": "White Upholstered Storage Bed",
+      "category": "Bedroom",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "White bed frame with a tall padded headboard and built-in storage drawers in the footboard.",
+      "photos": [
+        "images/notion/cbde21fc6348-0-0d60929546.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8121-a6d2-d428c6fe9208",
+      "name": "Oak Dining Table & Chairs",
+      "category": "Dining",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Long light-oak dining table with upholstered cream chairs. Seats a big family.",
+      "photos": [
+        "images/notion/d428c6fe9208-0-d9adb4549a.jpg",
+        "images/notion/d428c6fe9208-1-91c04588ee.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81f8-89a2-d418a345c074",
+      "name": "Sage Green Sofa",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Sage green sofa with wood legs and bolster pillows. Modern, comfy and on-trend.",
+      "photos": [
+        "images/notion/d418a345c074-0-6015d33ccd.jpg",
+        "images/notion/d418a345c074-1-f28ac2e121.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81d2-9e41-c0c25c941bad",
+      "name": "Light Gray Loveseat",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Light gray fabric loveseat with clean, track-arm styling.",
+      "photos": [
+        "images/notion/c0c25c941bad-0-d3dcf32eb3.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8189-a3e8-e51a9ee0a72e",
+      "name": "Cream Leather Reclining Sofa",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Cream leather three-seat reclining sofa. Pairs with the matching reclining loveseat.",
+      "photos": [
+        "images/notion/e51a9ee0a72e-0-6f1593f0ad.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8115-9fc8-ef7d066c0961",
+      "name": "Cream Leather Power Reclining Loveseat",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Cream leather loveseat with power recline. Plug it in and recline at the touch of a button.",
+      "photos": [
+        "images/notion/ef7d066c0961-0-08f27d8ed0.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81ac-884d-e2d7607622f8",
+      "name": "Gray Sleeper Sectional",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Gray fabric sectional with a pull-out sleeper and storage chaise. Great for guests and small spaces.",
+      "photos": [
+        "images/notion/e2d7607622f8-0-3fde7cbc39.jpg",
+        "images/notion/e2d7607622f8-1-d2819deba6.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8174-8aeb-c4347c9924ca",
+      "name": "Light Gray Leather Sectional",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Light gray leather sectional with a chaise. Modern lines and easy to clean.",
+      "photos": [
+        "images/notion/c4347c9924ca-0-d5a88c1486.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-812f-a865-e01af4cfb57b",
+      "name": "Beige Sectional With Ottoman",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Beige modular sectional with a chaise and a matching ottoman. Soft, neutral fabric.",
+      "photos": [
+        "images/notion/e01af4cfb57b-0-149d0e1a07.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81a7-9f7e-d1d833a39fbd",
+      "name": "Burnt Orange Sectional",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Burnt orange sectional with a chaise and patterned accent pillows. A bold pop of color for any room.",
+      "photos": [
+        "images/notion/d1d833a39fbd-0-441e835dee.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81f3-80a3-dee45e3f0c93",
+      "name": "Charcoal Sofa & Loveseat Set",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Charcoal gray sofa and loveseat in soft plush fabric with accent pillows.",
+      "photos": [
+        "images/notion/dee45e3f0c93-0-aa8204c6d9.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8152-9289-dc6ad40b1f98",
+      "name": "Tile-Top Patio Dining Set",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Rectangular tile-top patio table with sling chairs, including swivel rockers. Easy-care outdoor set.",
+      "photos": [
+        "images/notion/dc6ad40b1f98-0-17578ec4c4.jpg",
+        "images/notion/dc6ad40b1f98-1-5178873516.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8116-aa3b-d550a1bb4673",
+      "name": "Cast Aluminum Patio Dining Set",
+      "category": "Outdoor",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Oval cast-aluminum patio table with ornate scroll design, chairs and swivel chairs, all with cream cushions.",
+      "photos": [
+        "images/notion/d550a1bb4673-0-80fdb94ed5.jpg",
+        "images/notion/d550a1bb4673-1-5f847a4054.jpg",
+        "images/notion/d550a1bb4673-2-b4a6789dad.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-810a-9cd1-f67acd91b272",
+      "name": "Wood Dining Table & 6 Chairs",
+      "category": "Dining",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Dark wood trestle dining table with six slat-back chairs with black cushioned seats.",
+      "photos": [
+        "images/notion/f67acd91b272-0-a71bb04dde.jpg",
+        "images/notion/f67acd91b272-1-cd99aa7050.jpg",
+        "images/notion/f67acd91b272-2-525d08f95e.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81ad-9b0d-c693910515ec",
+      "name": "Ivory Sofa With Chaise",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Ivory fabric sofa with a chaise ottoman. Clean, modern look with deep, comfy seats.",
+      "photos": [
+        "images/notion/c693910515ec-0-a52138c251.jpg",
+        "images/notion/c693910515ec-1-8a21a9b341.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-8129-8c3c-e9cfba9750ec",
+      "name": "Plush Gray Double Chaise",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Oversized double chaise in soft, textured gray fabric with throw pillows. Room for two to stretch out.",
+      "photos": [
+        "images/notion/e9cfba9750ec-0-adfaa2c195.jpg",
+        "images/notion/e9cfba9750ec-1-9ceba37f37.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-81bf-9e89-c8ced86954ef",
+      "name": "Gray Modular U-Sectional",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Big light-gray modular sectional in a U shape with a matching ottoman. Pieces can be rearranged to fit your space.",
+      "photos": [
+        "images/notion/c8ced86954ef-0-0a8c1337a0.jpg",
+        "images/notion/c8ced86954ef-1-3779943055.jpg",
+        "images/notion/c8ced86954ef-2-f3858aa386.jpg"
+      ]
+    },
+    {
+      "id": "417bc49a-f653-811d-96ba-ee3ad952fd2f",
+      "name": "Cream Sofa & Loveseat Set",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "—",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "—",
+      "description": "Cream sofa and matching loveseat with carved wood trim and pillow backs. Classic, cozy set for a living room or den.",
+      "photos": [
+        "images/notion/ee3ad952fd2f-0-2381978750.jpg",
+        "images/notion/ee3ad952fd2f-1-3b87f9b809.jpg"
       ]
     }
   ]
