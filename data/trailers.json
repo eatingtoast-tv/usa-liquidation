@@ -1,21 +1,4 @@
 {
   "_note": "Synced from Notion > Website > Food Trailers",
-  "items": [
-    {
-      "id": "417bc49a-f653-81d9-9e99-e087673e6cea",
-      "name": "TEST - Delete Me Trailer",
-      "status": "In Stock",
-      "price": "$24,500",
-      "photo": "images/notion/e087673e6cea-0-d906b6d5bf.jpg",
-      "photos": [
-        "images/notion/e087673e6cea-0-d906b6d5bf.jpg"
-      ],
-      "specs": [
-        "Hood + fire suppression",
-        "Flat-top grill",
-        "3-comp sink"
-      ],
-      "description": ""
-    }
-  ]
+  "items": []
 }
