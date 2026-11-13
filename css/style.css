@@ -614,3 +614,13 @@ select.sort {
 @media (max-width: 760px) {
   .m-gallery { min-height: 0; aspect-ratio: 4 / 5; }
 }
+
+/* PHONES (incl. iPhone Safari): plain, non-absolute photo so it can never collapse to 0 height */
+@media (max-width: 760px) {
+  .modal-box { display: block; }
+  .m-gallery { position: relative; aspect-ratio: auto; height: auto; min-height: 0; }
+  .modal-box .m-gallery > img {
+    position: static; display: block; width: 100%; height: auto;
+    aspect-ratio: 4 / 5; object-fit: cover; min-height: 0;
+  }
+}
