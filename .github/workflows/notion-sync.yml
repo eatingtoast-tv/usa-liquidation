@@ -1,0 +1,41 @@
+# Pulls the USA Liquidation "Website" page from Notion and publishes changes to the live site.
+# Runs in GitHub's cloud — no computer needs to be on. Anyone can edit Notion from any device.
+name: Sync from Notion
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every ~10 minutes (GitHub may delay scheduled runs a few minutes)
+  workflow_dispatch: {}       # "Run workflow" button in the Actions tab for an instant update
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: notion-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: macos-latest      # macOS for `sips` (shrinks photos, converts iPhone HEIC → JPG)
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python3 sync_notion.py || echo "::warning::Some parts of the Notion sync failed — only the parts that worked were updated"
+
+      - name: Publish if anything changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add data/ images/notion/
+          if git diff --cached --quiet; then echo "No changes in Notion"; exit 0; fi
+          git config user.name  "notion-sync"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync from Notion $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push
+          # pushes made by this job don't always trigger a Pages rebuild on their own — ask for one
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null && echo "Site rebuild requested"
