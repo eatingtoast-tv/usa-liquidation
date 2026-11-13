@@ -97,13 +97,13 @@ function showPage(id) {
   $("listHead").hidden = $("listView").hidden = true;
   $("pdp").hidden = false;
   document.title = `${it.name} — USA Liquidation`;
-  scrollTo(0, 0);
+  scrollTo({ top: 0, left: 0, behavior: "instant" });   // jump, no smooth-scroll "bounce"
 }
 function showList() {
   $("pdp").hidden = true; $("pdp").innerHTML = "";
   $("listHead").hidden = $("listView").hidden = false;
   document.title = "Furniture — USA Liquidation";
-  scrollTo(0, listScroll);
+  scrollTo({ top: listScroll, left: 0, behavior: "instant" });
 }
 function route() {
   const m = location.hash.match(/item=([\w-]+)/);
