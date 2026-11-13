@@ -1,11 +1,12 @@
 #!/bin/zsh
 # Pull the latest from Notion (Website page) and publish to the live site if anything changed.
 #   ./publish.sh            → sync + push if changed
-# Runs automatically every 15 min via ~/Library/LaunchAgents/com.usaliquidation.sync.plist
-# Log: ~/usa-liquidation-store/sync.log
+# Normally NOT needed: GitHub Actions (.github/workflows/notion-sync.yml) syncs every ~10 min in the cloud.
+# Use this only to force an update from this Mac. Pull first: git pull --rebase
 set -u
 export PATH="$HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 cd "$(dirname "$0")" || exit 1
+git pull -q --rebase
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') ==="
 python3 sync_notion.py || echo "(sync had errors — only the parts that worked were updated)"
