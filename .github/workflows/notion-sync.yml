@@ -20,7 +20,7 @@ jobs:
     runs-on: macos-latest      # macOS for `sips` (shrinks photos, converts iPhone HEIC → JPG)
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Pull from Notion
         env:
@@ -31,7 +31,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git add data/ images/notion/
+          git add -A data/
+          if [ -d images/notion ]; then git add -A images/notion/; fi
+          git add -u images/notion/ 2>/dev/null || true   # photo deletions when the folder is now empty
           if git diff --cached --quiet; then echo "No changes in Notion"; exit 0; fi
           git config user.name  "notion-sync"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
