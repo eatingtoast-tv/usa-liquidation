@@ -110,6 +110,6 @@ document.querySelectorAll("[data-maps]").forEach(a => (a.href = SITE.mapsUrl));
   s.setAttribute("data-resources-url", "https://widgets.leadconnectorhq.com/chat-widget/loader.js");
   // Home page = A2P text opt-in widget (carriers require it to be the ONLY phone/SMS-consent form on the
   // URL registered for A2P). Every other page = the navy live chat widget.
-  s.setAttribute("data-widget-id", PAGE === "home" ? "6af65f51ee64ee84e67abf51" : "6af39a92f5284e7ffe2cc05a");
+  s.setAttribute("data-widget-id", PAGE === "home" ? "6af6626bf31f8c02e64028fc" : "6af39a92f5284e7ffe2cc05a");
   document.body.appendChild(s);
 })();
