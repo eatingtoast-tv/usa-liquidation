@@ -54,8 +54,26 @@ document.getElementById("site-header").outerHTML = `
       <a class="btn btn-ghost btn-sm btn-call" href="${telLink()}">${icon.phone} ${SITE.phoneDisplay}</a>
       <a class="btn btn-primary btn-sm" href="${smsLink("Hi USA Liquidation! I have a question.")}">${icon.chat} <span class="btn-text-label">Text Us</span></a>
     </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mMenu"><span></span><span></span><span></span></button>
   </div>
+  <nav class="m-menu" id="mMenu" hidden>
+    <div class="wrap">
+      <div class="m-menu-cta">
+        <a class="btn btn-primary" href="${smsLink("Hi USA Liquidation! I have a question.")}">${icon.chat} Text Us</a>
+        <a class="btn btn-ghost" href="${telLink()}">${icon.phone} Call ${SITE.phoneDisplay}</a>
+      </div>
+      ${navItems.map(([k, h, t]) => `<a class="m-link ${PAGE === k ? "active" : ""}" href="${h}">${t}</a>`).join("")}
+    </div>
+  </nav>
 </header>`;
+// phone menu (☰)
+{
+  const b = document.getElementById("burger"), m = document.getElementById("mMenu");
+  const set = open => { m.hidden = !open; b.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.setAttribute("aria-label", open ? "Close menu" : "Open menu"); };
+  b.addEventListener("click", () => set(m.hidden));
+  m.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+  addEventListener("resize", () => { if (innerWidth > 860) set(false); });
+}
 
 // ---------- footer ----------
 const ftr = document.getElementById("site-footer");
