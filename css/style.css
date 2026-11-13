@@ -703,3 +703,26 @@ select.sort {
   .site-header .nav { margin: 0; justify-self: center; }
   .site-header .header-cta { justify-self: end; }
 }
+
+/* product page — layout wrappers (phone: stacked) */
+.pdp-top, .pdp-media, .pdp-info { display: flex; flex-direction: column; gap: 6px; }
+.pdp-all { align-self: stretch; justify-content: center; }
+
+/* product page — COMPUTER: photo left, details right, similar pieces below */
+@media (min-width: 761px) {
+  .pdp { padding: 24px 0 90px; gap: 10px; }
+  .pdp-top { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  .pdp-media { position: sticky; top: 96px; }
+  .pdp-thumbs button { width: 76px; height: 76px; }
+  .pdp-info { padding-top: 6px; gap: 8px; }
+  .pdp-cat { margin-top: 0; }
+  .pdp-name { font-size: 2.6rem; }
+  .pdp-price .price { font-size: 2.3rem; }
+  .pdp-actions { margin-top: 14px; }
+  .pdp-actions .btn { padding-block: 1em; font-size: 1.02rem; }
+  .pdp-note { text-align: left; }
+  .pdp-desc { font-size: 1.05rem; }
+  .pdp-sim-h { font-size: 1.7rem; margin: 64px 0 18px; }
+  .pdp-sim { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+  .pdp-all { align-self: center; margin-top: 30px; min-width: 260px; }
+}

@@ -50,7 +50,7 @@ const card = it => `<button class="item ${it.status === "Sold" ? "sold" : ""}" d
         ${priceRow(it)}
       </div></button>`;
 
-// ---------- PHONES: tapping a piece opens its own page (#item=…) instead of the popup ----------
+// ---------- tapping a piece opens its own page (#item=…) — phone and computer ----------
 const isPhone = () => matchMedia("(max-width: 760px)").matches;
 let listScroll = 0, cameFromList = false;
 
@@ -73,21 +73,27 @@ function showPage(id) {
   const sim = similar(it);
   $("pdp").innerHTML = `
     <button class="pdp-back" id="pdpBack">← All Furniture</button>
-    <div class="pdp-photo"><img id="pdpImg" src="${it.photos[0]}" alt="${it.name}" />${badge(it)}</div>
-    ${it.photos.length > 1 ? `<div class="pdp-thumbs" id="pdpThumbs">${it.photos.map((p, i) =>
-      `<button class="${i ? "" : "on"}" data-src="${p}" aria-label="Photo ${i + 1}"><img src="${p}" alt="" /></button>`).join("")}</div>` : ""}
-    <span class="eyebrow pdp-cat">${it.category}</span>
-    <h1 class="pdp-name">${it.name}</h1>
-    ${hasPrice(it) ? `<div class="pdp-price"><span class="price">${money(it.price)}</span>${it.retail > it.price ? `<span class="retail">Retail ${money(it.retail)}</span><span class="save">${Math.round((1 - it.price / it.retail) * 100)}% off</span>` : ""}</div>` : ""}
-    <div class="pdp-actions">
-      <a class="btn btn-accent" href="${smsLink(textMsg(it))}">${it.status === "Sold" ? "Text Us For Similar" : "Text Us About This"}</a>
-      <a class="btn btn-ghost" href="${telLink()}">Call Us</a>
+    <div class="pdp-top">
+      <div class="pdp-media">
+        <div class="pdp-photo"><img id="pdpImg" src="${it.photos[0]}" alt="${it.name}" />${badge(it)}</div>
+        ${it.photos.length > 1 ? `<div class="pdp-thumbs" id="pdpThumbs">${it.photos.map((p, i) =>
+          `<button class="${i ? "" : "on"}" data-src="${p}" aria-label="Photo ${i + 1}"><img src="${p}" alt="" /></button>`).join("")}</div>` : ""}
+      </div>
+      <div class="pdp-info">
+        <span class="eyebrow pdp-cat">${it.category}</span>
+        <h1 class="pdp-name">${it.name}</h1>
+        ${hasPrice(it) ? `<div class="pdp-price"><span class="price">${money(it.price)}</span>${it.retail > it.price ? `<span class="retail">Retail ${money(it.retail)}</span><span class="save">${Math.round((1 - it.price / it.retail) * 100)}% off</span>` : ""}</div>` : ""}
+        <div class="pdp-actions">
+          <a class="btn btn-accent" href="${smsLink(textMsg(it))}">${it.status === "Sold" ? "Text Us For Similar" : "Text Us About This"}</a>
+          <a class="btn btn-ghost" href="${telLink()}">Call Us</a>
+        </div>
+        <p class="pdp-note">We'll answer questions, send more photos, or hold it for you.</p>
+        ${it.description ? `<p class="pdp-desc">${it.description}</p>` : ""}
+        ${specs.length ? `<ul class="specs">${specs.map(([k, v]) => `<li><span>${k}</span><span>${v}</span></li>`).join("")}</ul>` : ""}
+      </div>
     </div>
-    <p class="pdp-note">We'll answer questions, send more photos, or hold it for you.</p>
-    ${it.description ? `<p class="pdp-desc">${it.description}</p>` : ""}
-    ${specs.length ? `<ul class="specs">${specs.map(([k, v]) => `<li><span>${k}</span><span>${v}</span></li>`).join("")}</ul>` : ""}
     ${sim.length ? `<h2 class="pdp-sim-h">Similar Pieces You Might Like</h2><div class="grid pdp-sim">${sim.map(card).join("")}</div>` : ""}
-    <a class="btn btn-ghost btn-block pdp-all" href="#">See All Furniture</a>`;
+    <a class="btn btn-ghost pdp-all" href="#">See All Furniture</a>`;
   $("listHead").hidden = $("listView").hidden = true;
   $("pdp").hidden = false;
   document.title = `${it.name} — USA Liquidation`;
@@ -102,8 +108,7 @@ function showList() {
 function route() {
   const m = location.hash.match(/item=([\w-]+)/);
   if (!m || !items.length) return showList();
-  if (isPhone()) showPage(m[1]);
-  else { showList(); openItem(m[1]); }   // computer: shared links open the popup
+  showPage(m[1]);
 }
 addEventListener("hashchange", route);
 
@@ -185,8 +190,7 @@ $("mThumbs").addEventListener("click", e => {
 });
 $("grid").addEventListener("click", e => {
   const b = e.target.closest(".item"); if (!b) return;
-  if (isPhone()) { listScroll = scrollY; cameFromList = true; location.hash = "item=" + b.dataset.id; }
-  else openItem(b.dataset.id);
+  listScroll = scrollY; cameFromList = true; location.hash = "item=" + b.dataset.id;
 });
 $("cats").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cat = b.dataset.v; $("dd").classList.remove("open"); renderMenus(); render(); });
 $("conds").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cond = b.dataset.v; $("dd2").classList.remove("open"); renderMenus(); render(); });
