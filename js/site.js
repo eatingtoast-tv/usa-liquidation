@@ -1,8 +1,8 @@
 // ============ SETTINGS — edit these ============
 const SITE = {
-  phoneDisplay: "704-232-2700",
-  phoneTel: "+17042322700",
-  smsTel: "+19803855988",           // GHL number (980-385-5988) — texts land in GHL Conversations; calls to it forward to 704-232-2700
+  phoneDisplay: "980-385-5988",          // GHL number — calls forward to the store phone (704-232-2700)
+  phoneTel: "+19803855988",
+  smsTel: "+19803855988",           // texts land in GHL Conversations
   address: "2733 E Ozark Ave",
   city: "Gastonia, NC",
   mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent("USA Liquidation, 2733 E Ozark Ave, Gastonia, NC"),
