@@ -81,7 +81,7 @@ fetch(INVENTORY_URL, { cache: "no-store" }).then(r => r.json()).then(d => {
   items = d.items || [];
   const avail = items.filter(i => i.status !== "Sold").length;
   $("liveNote").textContent = avail
-    ? `${avail} pieces available · updated as stuff comes in and sells`
+    ? `${avail} ${avail === 1 ? "piece" : "pieces"} available · updated as stuff comes in and sells`
     : "New pieces are being posted — text or call us to see what's on the floor today";
   if (!items.length) $("empty").innerHTML = `Our online inventory is being added now. <a href="${smsLink("Hi! What furniture do you have in stock right now?")}">Text us</a> or <a href="${telLink()}">call ${SITE.phoneDisplay}</a> and we'll send you pictures of what's in the store.`;
   renderCats(); render();
