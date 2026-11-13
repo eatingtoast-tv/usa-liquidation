@@ -1,4 +1,20 @@
 {
-  "_note": "Filled from Notion > Website > Website Inventory.",
-  "items": []
+  "_note": "Synced from Notion > USA Liquidation > Website > Website Inventory",
+  "items": [
+    {
+      "id": "417bc49a-f653-812b-a6bb-d50056fab173",
+      "name": "TEST - Delete Me Sofa",
+      "category": "Living Room",
+      "price": 399,
+      "retail": 999,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-13",
+      "dims": "84 x 36 x 34 in",
+      "description": "Test listing to check the Notion to website sync. Will be deleted.",
+      "photos": [
+        "images/notion/417bc49a-0-ee5f994a02.jpg"
+      ]
+    }
+  ]
 }
