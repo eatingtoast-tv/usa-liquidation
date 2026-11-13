@@ -571,3 +571,24 @@ select.sort {
 .f-legal { display: flex; gap: 16px; }
 .f-legal a { color: inherit; }
 .consent a { color: inherit; text-decoration: underline; }
+
+/* ---------- all product/inventory photos are square (1:1) ---------- */
+.item .ph, .trailer .ph, .shot { aspect-ratio: 1 / 1; }
+.today-card .photo { min-height: 0; aspect-ratio: 1 / 1; }
+.m-gallery { min-height: 0; aspect-ratio: 1 / 1; align-self: start; }
+@media (max-width: 760px) { .m-gallery { aspect-ratio: 1 / 1; } .modal-box .m-gallery > img { aspect-ratio: auto; } }
+.today-card { grid-template-columns: 1fr 1fr; }
+@media (max-width: 760px) { .today-card { grid-template-columns: 1fr; } }
+
+/* furniture toolbar: category + condition dropdowns, search, sort */
+.toolbar2 { grid-template-columns: auto auto 1fr auto; }
+.dd-menu button:disabled { opacity: .4; cursor: default; }
+.dd-menu button:disabled:hover { background: none; }
+@media (max-width: 760px) {
+  .toolbar2 { grid-template-columns: 1fr 1fr; }
+  .toolbar2 select.sort { grid-column: 1 / -1; }
+  #dd2 .dd-menu { left: auto; right: 0; }
+  #dd .dd-menu { right: auto; }
+  .dd-menu { min-width: 220px; }
+  .dd-btn { padding: 0 12px; gap: 6px; font-size: .9rem; }
+}

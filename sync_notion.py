@@ -32,10 +32,16 @@ TOKEN = (os.environ.get("NOTION_TOKEN") or (_own if _own.exists() else
 UA = "usa-liquidation-site-sync/1.0"
 
 
-def api(path, body=None):
+def options(db, prop):
+    """The choices of a select property, in the order they're arranged in Notion."""
+    p = api(f"databases/{db}", method="GET")["properties"].get(prop) or {}
+    return [o["name"] for o in (p.get(p.get("type", ""), {}) or {}).get("options", [])]
+
+
+def api(path, body=None, method="POST"):
     req = urllib.request.Request(
         "https://api.notion.com/v1/" + path,
-        data=json.dumps(body or {}).encode(), method="POST",
+        data=json.dumps(body or {}).encode() if method == "POST" else None, method=method,
         headers={"Authorization": "Bearer " + TOKEN, "Notion-Version": "2022-06-28",
                  "Content-Type": "application/json", "User-Agent": UA})
     return json.load(urllib.request.urlopen(req, timeout=30))
@@ -62,6 +68,22 @@ def chk(p): return bool(p.get("checkbox")) if p else False
 def created(page): return page["created_time"][:10]
 
 
+def shrink(src, dest):
+    """Resize to max 1400px JPEG, upright, handles iPhone HEIC. Pillow (cloud) or sips (Mac)."""
+    try:
+        from PIL import Image, ImageOps
+        try:
+            import pillow_heif; pillow_heif.register_heif_opener()
+        except ImportError:
+            pass
+        im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+        im.thumbnail((1400, 1400))
+        im.save(dest, "JPEG", quality=78, optimize=True, progressive=True)
+    except Exception:
+        subprocess.run(["sips", "-Z", "1400", "-s", "format", "jpeg", "-s", "formatOptions", "75",
+                        str(src), "--out", str(dest)], capture_output=True)
+
+
 def photos(p, page_id):
     """Download every photo in a Files property; return local web paths."""
     out = []
@@ -77,9 +99,7 @@ def photos(p, page_id):
             tmp = dest.with_suffix(".download")
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             tmp.write_bytes(urllib.request.urlopen(req, timeout=60).read())
-            # shrink + convert to jpeg (handles HEIC from iPhones too)
-            subprocess.run(["sips", "-Z", "1400", "-s", "format", "jpeg", "-s", "formatOptions", "75",
-                            str(tmp), "--out", str(dest)], capture_output=True)
+            shrink(tmp, dest)
             tmp.unlink(missing_ok=True)
             if not dest.exists(): continue
         out.append(f"images/notion/{dest.name}")
@@ -104,14 +124,18 @@ def sync_furniture():
             "category": sel(pr.get("Category")) or "Other",
             "price": num(pr.get("Price")) or 0,
             "retail": num(pr.get("Retail Price")),
-            "condition": sel(pr.get("Condition")) or "—",
+            "condition": sel(pr.get("Condition")),
             "status": "Pending" if status == "On Hold" else status,
             "added": created(pg),
             "dims": text(pr.get("Size / Dimensions")) or "—",
             "description": text(pr.get("Description")),
             "photos": photos(pr.get("Photos"), pg["id"]) or ["images/logo-color.png"],
         })
-    write("furniture", {"_note": "Synced from Notion > USA Liquidation > Website > Website Inventory", "items": items})
+    write("furniture", {"_note": "Synced from Notion > USA Liquidation > Website > Website Inventory",
+                        # Notion's own option lists → new categories/conditions show up on the site automatically
+                        "categories": options(DBS["furniture"], "Category"),
+                        "conditions": options(DBS["furniture"], "Condition"),
+                        "items": items})
     print(f"  furniture: {len(items)} items")
 
 

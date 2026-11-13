@@ -4,7 +4,7 @@ name: Sync from Notion
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # every ~10 minutes (GitHub may delay scheduled runs a few minutes)
+    - cron: "*/5 * * * *"    # every 5 minutes — the fastest GitHub allows (runs can start a few minutes late)
   workflow_dispatch: {}       # "Run workflow" button in the Actions tab for an instant update
 
 permissions:
@@ -17,10 +17,13 @@ concurrency:
 
 jobs:
   sync:
-    runs-on: macos-latest      # macOS for `sips` (shrinks photos, converts iPhone HEIC → JPG)
-    timeout-minutes: 15
+    runs-on: ubuntu-latest     # starts in seconds; Pillow shrinks photos + converts iPhone HEIC
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+
+      - name: Photo tools
+        run: pip install --quiet pillow pillow-heif
 
       - name: Pull from Notion
         env:
