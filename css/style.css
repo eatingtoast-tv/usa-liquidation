@@ -304,6 +304,13 @@ select.sort {
   max-height: calc(100vh - 32px); overflow: auto; display: grid; grid-template-columns: 1.15fr 1fr; position: relative;
 }
 .modal-box img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; }
+.m-gallery { position: relative; min-height: 320px; }
+.m-gallery > img { position: absolute; inset: 0; }
+.m-thumbs { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; gap: 6px; overflow-x: auto; }
+.m-thumbs:empty { display: none; }
+.m-thumbs button { flex: 0 0 auto; width: 56px; height: 56px; padding: 0; border: 2px solid #fff; border-radius: 8px; overflow: hidden; cursor: pointer; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.25); opacity: .85; }
+.m-thumbs button.on { border-color: var(--accent); opacity: 1; }
+.modal-box .m-thumbs img { min-height: 0; height: 100%; width: 100%; object-fit: cover; }
 .modal-box .m-body { padding: 32px; display: flex; flex-direction: column; gap: 6px; }
 .modal-box .m-body .price { font-size: 2rem; }
 .modal-close {
@@ -315,7 +322,7 @@ select.sort {
 .specs li span:first-child { color: var(--muted); }
 .m-actions { display: grid; gap: 10px; margin-top: 14px; }
 .m-actions small { color: var(--muted); text-align: center; }
-@media (max-width: 760px) { .modal-box { grid-template-columns: 1fr; } .modal-box img { min-height: 0; aspect-ratio: 4/3; } }
+@media (max-width: 760px) { .modal-box { grid-template-columns: 1fr; } .modal-box img { min-height: 0; aspect-ratio: 4/3; } .m-gallery { min-height: 0; aspect-ratio: 4/3; } }
 
 /* ---------- bins ---------- */
 .today-card {

@@ -5,6 +5,8 @@ const INVENTORY_URL = "data/furniture.json";
 
 const $ = id => document.getElementById(id);
 const money = n => "$" + Number(n).toLocaleString();
+const price = it => (it.price > 0 ? money(it.price) : "Call For Price");   // blank price in Notion → "Call For Price"
+const known = v => v && v !== "—";
 const isNew = d => (Date.now() - new Date(d)) / 864e5 <= 7;
 let items = [], cat = "All";
 
@@ -23,16 +25,17 @@ function render() {
     (!q || (it.name + " " + it.description + " " + it.category).toLowerCase().includes(q)));
   const rank = s => (s === "Sold" ? 1 : 0); // sold items sink to the bottom
   list.sort((a, b) => rank(a.status) - rank(b.status) ||
-    (sort === "low" ? a.price - b.price : sort === "high" ? b.price - a.price : new Date(b.added) - new Date(a.added)));
+    // items without a price go after priced ones when sorting by price
+    (sort === "low" ? (a.price || 1e9) - (b.price || 1e9) : sort === "high" ? (b.price || 0) - (a.price || 0) : new Date(b.added) - new Date(a.added)));
 
   $("grid").innerHTML = list.map(it => {
-    const off = it.retail ? Math.round((1 - it.price / it.retail) * 100) : 0;
+    const off = it.retail && it.price ? Math.round((1 - it.price / it.retail) * 100) : 0;
     return `<button class="item ${it.status === "Sold" ? "sold" : ""}" data-id="${it.id}">
       <div class="ph"><img loading="lazy" src="${it.photos[0]}" alt="${it.name}" />${badge(it)}</div>
       <div class="info">
-        <span class="cat">${it.category} · ${it.condition}</span>
+        <span class="cat">${it.category}${known(it.condition) ? ` · ${it.condition}` : ""}</span>
         <h3>${it.name}</h3>
-        <div class="price-row"><span class="price">${money(it.price)}</span>${it.retail ? `<span class="retail">${money(it.retail)}</span>` : ""}${off > 0 && it.status !== "Sold" ? `<span class="save">${off}% off</span>` : ""}</div>
+        <div class="price-row"><span class="price">${price(it)}</span>${it.retail && it.price ? `<span class="retail">${money(it.retail)}</span>` : ""}${off > 0 && it.status !== "Sold" ? `<span class="save">${off}% off</span>` : ""}</div>
       </div></button>`;
   }).join("");
   $("empty").hidden = list.length > 0;
@@ -53,23 +56,32 @@ document.addEventListener("click", e => { if (!dd.contains(e.target)) dd.classLi
 function openItem(id) {
   const it = items.find(i => i.id === id); if (!it) return;
   $("mImg").src = it.photos[0]; $("mImg").alt = it.name;
+  // tap-through thumbnails when there's more than one photo
+  $("mThumbs").innerHTML = it.photos.length > 1 ? it.photos.map((p, i) =>
+    `<button class="${i ? "" : "on"}" data-src="${p}" aria-label="Photo ${i + 1}"><img src="${p}" alt="" /></button>`).join("") : "";
   $("mCat").textContent = it.category;
   $("mName").textContent = it.name;
-  $("mPrice").textContent = money(it.price);
-  $("mRetail").textContent = it.retail ? "Retail " + money(it.retail) : "";
+  $("mPrice").textContent = price(it);
+  $("mRetail").textContent = it.retail && it.price ? "Retail " + money(it.retail) : "";
   $("mDesc").textContent = it.description;
   $("mSpecs").innerHTML = [["Condition", it.condition], ["Size", it.dims], ["Status", it.status === "Pending" ? "On hold" : it.status]]
+    .filter(([, v]) => known(v))
     .map(([k, v]) => `<li><span>${k}</span><span>${v}</span></li>`).join("");
   const sold = it.status === "Sold";
   $("mText").textContent = sold ? "Text Us For Something Similar" : "Text Us About This";
   $("mText").href = smsLink(sold
     ? `Hi! I saw the ${it.name} sold — do you have anything similar?`
-    : `Hi! I'm interested in the ${it.name} (${money(it.price)}) I saw on your website. Is it still available?`);
+    : `Hi! I'm interested in the ${it.name}${it.price > 0 ? ` (${money(it.price)})` : ""} I saw on your website. Is it still available?`);
   $("modal").classList.add("open");
   $("modal").setAttribute("aria-hidden", "false");
 }
 function closeModal() { $("modal").classList.remove("open"); $("modal").setAttribute("aria-hidden", "true"); }
 
+$("mThumbs").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  $("mImg").src = b.dataset.src;
+  $("mThumbs").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+});
 $("grid").addEventListener("click", e => { const b = e.target.closest(".item"); if (b) openItem(b.dataset.id); });
 $("cats").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; cat = b.dataset.c; dd.classList.remove("open"); renderCats(); render(); });
 $("q").addEventListener("input", render);
