@@ -597,3 +597,11 @@ select.sort {
 .item .ph img, .trailer .ph img, .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .shot { display: block; }
 @media (max-width: 760px) { .toolbar2:has(#dd2[hidden]) #dd, .toolbar2:has(#dd2[hidden]) #dd .dd-btn { grid-column: 1 / -1; width: 100%; } }
+
+/* popup (after tapping a piece): show the WHOLE photo, not a square crop */
+.m-gallery { aspect-ratio: auto; min-height: 420px; background: #14171f; }
+.modal-box .m-gallery > img { object-fit: contain; }
+@media (max-width: 760px) {
+  .m-gallery { min-height: 0; aspect-ratio: 4 / 5; }
+  .modal-box .m-gallery > img { aspect-ratio: auto; }
+}
