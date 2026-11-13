@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-style="showroom">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Custom Food Trailers — USA Liquidation</title>
+<meta name="description" content="Custom food trailers built around your menu, plus trailers in stock. Get a free quote from USA Liquidation in Gastonia, NC." />
+<link rel="icon" href="images/logo-color.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=1112" />
+</head>
+<body data-page="trailers">
+<div id="site-header"></div>
+
+<main>
+  <!-- HERO + QUOTE -->
+  <section class="t-hero" id="quote">
+    <div class="wrap t-hero-grid">
+      <div>
+        <span class="eyebrow">Custom Food Trailers · Built To Order</span>
+        <h1>Your Menu. Your Layout. <span style="color:var(--accent)">Your Trailer.</span></h1>
+        <p class="lead">We build food trailers around what <em>you</em> cook — pick the size, the equipment, and the look, and we'll put together a free custom quote.</p>
+        <ul class="t-points">
+          <li>Built Around Your Menu</li>
+          <li>Free, No-Obligation Quotes</li>
+          <li>Delivered Ready To Cook</li>
+        </ul>
+        <div class="t-btns" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-ghost" href="#stock">See In-Stock Trailers ↓</a>
+          <a class="btn btn-ghost" data-tel>Call <span data-phone-text></span></a>
+        </div>
+      </div>
+
+      <form class="quote-card" id="quoteForm" novalidate>
+        <h3 style="margin-bottom:4px">Get A Free Quote Today</h3>
+        <p class="muted" style="font-size:.92rem;margin-bottom:16px">Takes about a minute. We'll text or call you with a price.</p>
+        <div class="q-progress"><span id="qBar"></span></div>
+        <p class="q-label" id="qLabel">Step 1 of 2 · Your trailer</p>
+
+        <div class="q-step active" data-step="1">
+          <div class="field"><span class="lbl">Trailer Size</span>
+            <div class="chips" data-name="size" data-single>
+              <button type="button" class="chip">8–12 ft</button><button type="button" class="chip">14–16 ft</button><button type="button" class="chip">18–20 ft</button><button type="button" class="chip">24 ft+</button><button type="button" class="chip">Not sure</button>
+            </div></div>
+          <div class="field"><span class="lbl">What Will You Be Serving?</span>
+            <div class="chips" data-name="food">
+              <button type="button" class="chip">Food</button><button type="button" class="chip">Coffee / Drinks</button><button type="button" class="chip">Bakery / Ice Cream</button>
+            </div></div>
+          <div class="field"><label for="budget">Budget</label>
+            <select id="budget" name="budget"><option value="">Choose a range…</option><option>Under $15k</option><option>$15k – $30k</option><option>$30k – $50k</option><option>$50k+</option><option>Not sure yet</option></select></div>
+          <p class="err" id="err1"></p>
+          <button type="button" class="btn btn-primary btn-block" id="qNext">Next →</button>
+        </div>
+
+        <div class="q-step" data-step="2">
+          <div class="two">
+            <div class="field"><label for="fn">First Name</label><input id="fn" name="first_name" autocomplete="given-name" /></div>
+            <div class="field"><label for="ln">Last Name</label><input id="ln" name="last_name" autocomplete="family-name" /></div>
+          </div>
+          <div class="two">
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="980-222-1515" /></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" /></div>
+          </div>
+          <label class="consent"><input type="checkbox" id="consent" /> I agree to receive calls and texts from USA Liquidation about my quote, including occasional offers. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms</a>.</label>
+          <p class="err" id="err2"></p>
+          <div class="q-nav"><button type="button" class="btn btn-ghost" id="qBack">← Back</button><button type="submit" class="btn btn-accent" id="qSubmit" disabled>Get My Free Quote</button></div>
+        </div>
+
+        <div class="q-step q-done" data-step="done">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+          <h3>Got It — Thank You!</h3>
+          <p class="muted">We'll reach out soon with your quote.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Build</span>
+        <h2>Trailers For Every Kind Of Menu</h2>
+        <p class="muted">Every trailer is built around your food and how you work.</p>
+      </div>
+      <div class="svc">
+        <div class="card"><span class="tag2">Starter</span><div class="size">8–12 ft</div><h3>Compact Trailer</h3><p>Perfect for coffee, drinks, desserts, or a tight menu. Easy to tow, easy to park.</p><ul><li>Service window</li><li>Sinks &amp; water system</li><li>Fridge + prep counter</li></ul></div>
+        <div class="card featured"><span class="tag2">Most Popular</span><div class="size">14–20 ft</div><h3>Full Kitchen Trailer</h3><p>Room for a real cook line — grill, fryer, flat-top, hood and fire suppression.</p><ul><li>Hood + fire suppression</li><li>Full cook line</li><li>Cold storage</li></ul></div>
+        <div class="card"><span class="tag2">Pro</span><div class="size">22 ft +</div><h3>Large / BBQ Rig</h3><p>Big-volume kitchens and BBQ setups with smoker porches and extra storage.</p><ul><li>Smoker porch option</li><li>Multiple windows</li><li>Generator setup</li></ul></div>
+        <div class="card"><span class="tag2">Your Idea</span><div class="size">Any size</div><h3>Fully Custom</h3><p>Got a vision? Tell us your menu and we'll design the layout from scratch.</p><ul><li>Custom layout</li><li>Wrap &amp; branding</li><li>Built to your spec</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section class="section">
+    <div class="wrap opts-grid">
+      <div>
+        <span class="eyebrow">Customize</span>
+        <h2>Build It Your Way</h2>
+        <p class="muted">Mix and match the equipment you need. Not sure? Tell us your menu and we'll help you figure it out.</p>
+        <a class="btn btn-primary" href="#quote">Get My Free Quote →</a>
+      </div>
+      <div class="opts">
+        <div>Grills &amp; Flat-Tops</div><div>Deep Fryers</div><div>Hood &amp; Fire Suppression</div>
+        <div>Fridges &amp; Freezers</div><div>3-Comp + Hand Sinks</div><div>Generator &amp; Electrical</div>
+        <div>Service Windows</div><div>Smoker Porch</div><div>Custom Wrap &amp; Logo</div>
+        <div>LED Lighting &amp; Menu Boards</div><div>AC &amp; Ventilation</div><div>Storage &amp; Shelving</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">How It Works</span>
+        <h2>From Idea To Open For Business</h2>
+      </div>
+      <div class="steps">
+        <div><h3>Tell Us Your Menu</h3><p>Fill out the quick quote form — size, food, budget.</p></div>
+        <div><h3>Get Your Free Quote</h3><p>We map out the layout and equipment and send you a price.</p></div>
+        <div><h3>We Build It</h3><p>Your trailer gets built to spec — then you're open for business.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Our Work</span>
+        <h2>Trailers We've Built</h2>
+        <p class="muted">A few of the food trailers we've put together. Tap a photo to see it bigger.</p>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <div style="margin-top:28px"><a class="btn btn-primary" href="#quote">Build Something Like This →</a></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common Questions</h2>
+      </div>
+      <div class="faq">
+        <details><summary>How Much Does A Custom Food Trailer Cost?</summary><p>It depends on size and equipment. A simple drinks or dessert trailer costs a lot less than a full kitchen with a hood system. Fill out the quote form and we'll give you a real number for your build.</p></details>
+        <details><summary>How Long Does A Build Take?</summary><p>Timelines depend on the build and equipment. We'll give you an estimated timeline along with your quote.</p></details>
+        <details><summary>Can You Help Me Figure Out What Equipment I Need?</summary><p>Yes — tell us your menu and we'll recommend a layout and equipment list that fits it.</p></details>
+        <details><summary>Do You Deliver?</summary><p>Delivery is available. Let us know your city on the form and we'll include it in your quote.</p></details>
+        <details><summary>Is The Quote Really Free?</summary><p>100% free with no obligation.</p></details>
+        <details><summary>Can I Come See A Trailer In Person?</summary><p>Yes — trailers in stock are at our Gastonia location. Call or text us to set up a time.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- IN STOCK -->
+  <section class="section" id="stock" style="scroll-margin-top:80px">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Ready To Go</span>
+        <h2>Available In Stock Right Now</h2>
+        <p class="muted">Don't want to wait on a build? These trailers are ready today.</p>
+      </div>
+      <div class="grid" id="tGrid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))"></div>
+    </div>
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><img alt="" /><p class="lb-cap"></p></div>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=1112"></script>
+<script src="js/trailers.js?v=1112"></script>
+</body>
+</html>

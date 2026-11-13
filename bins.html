@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-style="showroom">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bins — USA Liquidation</title>
+<link rel="icon" href="images/logo-color.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=1112" />
+</head>
+<body data-page="bins">
+<div id="site-header"></div>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">The Bins</span>
+      <h1>Dig In. Prices Drop Every Day.</h1>
+      <p class="lead">Bins of brand-name returns and overstock — everything in the bins is one price. Fresh bins every Saturday, then the price drops through the week — Friday is Dollar Day.</p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="today-card">
+      <div class="t-left">
+        <span class="eyebrow" id="tDay"></span>
+        <div class="big-price" id="tPrice"></div>
+        <h3 id="tLabel" style="margin:0 0 6px"></h3>
+        <p class="muted" id="tNote"></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+          <a class="btn btn-primary" data-maps target="_blank" rel="noopener">Get Directions</a>
+          <a class="btn btn-ghost" data-sms="Hi! Question about the bins:">Text Us</a>
+        </div>
+      </div>
+      <div class="photo">
+        <img id="tPhoto" alt="What's in the bins today" />
+        <span class="cap" id="tCap"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">This week</span>
+        <h2>Bin Prices By Day</h2>
+        <p class="muted">Every item in the bins is the price of the day. Closed Mondays.</p>
+      </div>
+      <div class="week" id="week"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">About the bins</span>
+        <h2>Where It All Comes From</h2>
+      </div>
+      <div class="info-cards">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></div>
+          <h3>Big-Name Retailers</h3>
+          <p>We buy truckloads of customer returns and overstock from major online and big-box stores.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+          <h3>Fresh Every Saturday</h3>
+          <p>New pallets get dumped into the bins on Saturday — come early for the best finds.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>All Sales Final</h3>
+          <p>Items are sold as-is — check things over before you buy. Bring a bag, it gets busy!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap visit">
+      <div class="card"><h3>Store Hours</h3><table class="hours" data-hours></table></div>
+      <div class="card"><h3>Find Us</h3><p class="addr" data-address></p><a class="btn btn-primary btn-sm" data-maps target="_blank" rel="noopener">Get Directions →</a><a class="map-link" data-maps target="_blank" rel="noopener" aria-label="Get directions to USA Liquidation"><iframe class="map-embed" data-map title="Map to USA Liquidation" loading="lazy" tabindex="-1"></iframe><span class="map-tap">Tap For Directions</span></a></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=1112"></script>
+<script>
+const WEEK = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+fetch("data/bins.json", { cache: "no-store" }).then(r => r.json()).then(b => {
+  const t = b.prices[TODAY];
+  document.getElementById("tDay").textContent = TODAY + " · Today";
+  if (t) {
+    document.getElementById("tPrice").innerHTML = "$" + t.price + "<small> / item</small>";
+    document.getElementById("tLabel").textContent = t.label || "Today's Bin Price";
+    document.getElementById("tNote").textContent = t.note || "Everything in the bins, one price.";
+  } else {
+    document.getElementById("tPrice").textContent = "Closed";
+    document.getElementById("tLabel").textContent = "Closed On Mondays";
+    document.getElementById("tNote").textContent = "See you tomorrow — bins are $" + b.prices.Tuesday.price + " on Tuesday.";
+  }
+  document.getElementById("tPhoto").src = b.photo;
+  const upd = new Date(b.photo_updated + "T12:00");
+  document.getElementById("tCap").textContent = b.photo_caption || ("Bins photo · " + upd.toLocaleDateString(undefined, { weekday: "long", month: "short", day: "numeric" }));
+  document.getElementById("week").innerHTML = WEEK.map(d => {
+    const p = b.prices[d];
+    if (!p) return `<div class="day closed ${d === TODAY ? "today" : ""}"><span class="d">${d.slice(0, 3)}</span><span class="p">Closed</span><span class="l"></span></div>`;
+    return `<div class="day ${d === TODAY ? "today" : ""}"><span class="d">${d.slice(0, 3)}</span><span class="p">$${p.price}</span><span class="l">${p.label}</span></div>`;
+  }).join("");
+});
+</script>
+</body>
+</html>

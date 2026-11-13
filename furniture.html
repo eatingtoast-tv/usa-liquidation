@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-style="showroom">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Furniture — USA Liquidation</title>
+<link rel="icon" href="images/logo-color.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=1112" />
+</head>
+<body data-page="furniture">
+<div id="site-header"></div>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Furniture</span>
+      <h1>On The Floor Right Now</h1>
+      <p class="lead">Everything you see here is in the warehouse today. Tap any piece for details, then text us to ask questions or hold it.</p>
+      <p class="live-note"><span class="dot"></span><span id="liveNote">Loading inventory…</span></p>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:80px">
+    <div class="toolbar2">
+      <div class="dd" id="dd">
+        <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span id="ddLabel">All Furniture</span>
+          <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="dd-menu" id="cats" role="menu"></div>
+      </div>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search sofas, beds…" /></label>
+      <select class="sort" id="sort" aria-label="Sort">
+        <option value="new">Newest First</option>
+        <option value="low">Price: Low To High</option>
+        <option value="high">Price: High To Low</option>
+      </select>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Nothing matches that. Text us — we may have it in the back!</p>
+  </section>
+</main>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close" aria-label="Close">×</button>
+    <img id="mImg" alt="" />
+    <div class="m-body">
+      <span class="eyebrow" id="mCat" style="margin:0"></span>
+      <h2 id="mName" style="margin:0"></h2>
+      <div class="price-row" style="padding-top:2px"><span class="price" id="mPrice"></span><span class="retail" id="mRetail"></span></div>
+      <p class="muted" id="mDesc" style="margin:10px 0 0"></p>
+      <ul class="specs" id="mSpecs"></ul>
+      <div class="m-actions">
+        <a class="btn btn-accent" id="mText">Text Us About This</a>
+        <a class="btn btn-ghost" data-tel>Call Us</a>
+        <small>We'll answer questions, send more photos, or hold it for you.</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=1112"></script>
+<script src="js/furniture.js?v=1112"></script>
+</body>
+</html>

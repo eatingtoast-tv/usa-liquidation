@@ -1,0 +1,38 @@
+{
+  "_note": "Matches the Bins database in Notion (Website > Bins). Monday = closed.",
+  "prices": {
+    "Tuesday": {
+      "price": 4,
+      "label": "",
+      "note": ""
+    },
+    "Wednesday": {
+      "price": 3,
+      "label": "",
+      "note": ""
+    },
+    "Thursday": {
+      "price": 2,
+      "label": "",
+      "note": ""
+    },
+    "Friday": {
+      "price": 1,
+      "label": "Dollar Day",
+      "note": "Everything $1"
+    },
+    "Saturday": {
+      "price": 8,
+      "label": "Fresh Bins",
+      "note": "Brand-new bins \u2014 best selection"
+    },
+    "Sunday": {
+      "price": 6,
+      "label": "",
+      "note": ""
+    }
+  },
+  "photo": "images/temp/u5.jpg",
+  "photo_caption": "",
+  "photo_updated": "2026-11-10"
+}
