@@ -2,3 +2,5 @@
 sync_notion.py
 images/work-1.jpg
 images/work-3.jpg
+.notion_token
+sync.log
