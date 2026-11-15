@@ -106,9 +106,12 @@
   <div id="login">
     <img src="/images/logo-color.png" alt="">
     <h1>Welcome back</h1>
-    <p class="muted">Type the password to manage the website.</p>
-    <form id="loginForm" class="card" style="margin-top:22px;text-align:left">
-      <label for="pw" style="margin-top:0">Password</label>
+    <p class="muted">Log in to manage the website.</p>
+    <button class="btn hide" id="faceBtn" type="button" style="margin-top:22px;padding:20px">🙂 Log in with Face ID</button>
+    <form id="loginForm" class="card" style="margin-top:16px;text-align:left">
+      <label for="un" style="margin-top:0">Username</label>
+      <input id="un" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+      <label for="pw">Password</label>
       <input id="pw" type="password" autocomplete="current-password" required>
       <button class="btn" type="submit">Log in</button>
       <p id="loginErr" class="muted" style="color:var(--red);text-align:center;margin-top:12px"></p>
@@ -128,6 +131,7 @@
     <button class="tile" data-go="bins"><span class="ic" style="background:#FBF0DC">🧺</span><span>Bins<small>Today's photo &amp; prices</small></span></button>
     <button class="tile" data-go="trailers"><span class="ic" style="background:#EEF1F8">🚚</span><span>Food trailers<small>Add or update trailers</small></span></button>
     <p class="muted" style="text-align:center;margin-top:18px">Changes show on the website in a minute or two.</p>
+    <button class="textlink hide" id="faceSetup" style="font-size:15px">🙂 Turn on Face ID login for this phone</button>
   </section>
 
   <!-- ADD -->
@@ -232,6 +236,6 @@
 <div id="toast"></div>
 <input type="file" id="filePick" accept="image/*" multiple class="hide">
 
-<script src="/admin/admin.js?v=3"></script>
+<script src="/admin/admin.js?v=4"></script>
 </body>
 </html>

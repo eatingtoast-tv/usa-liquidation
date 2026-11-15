@@ -16,7 +16,7 @@ async function api(path, method = "GET", body) {
     body: body ? JSON.stringify(body) : undefined,
   });
   const data = await r.json().catch(() => ({}));
-  if (r.status === 401 && path !== "login") { showLogin(); throw new Error("Please log in again."); }
+  if (r.status === 401 && path !== "login" && path !== "passkey") { showLogin(); throw new Error("Please log in again."); }
   if (!r.ok) throw new Error(data.error || "Something went wrong. Try again.");
   return data;
 }
@@ -295,19 +295,88 @@ $("#gallerySave").addEventListener("click", async () => {
   busy(btn, false);
 });
 
-// ---------- login ----------
-function showLogin() { $("#appView").classList.add("hide"); $("#loginView").classList.remove("hide"); }
+// ---------- login (username + password, or Face ID) ----------
+const TICKET = "usa_faceid";
+const store = { get: k => { try { return localStorage.getItem(k); } catch { return null; } },
+                set: (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} } };
+const b64u = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const fromB64u = s => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((s.length + 3) % 4)), c => c.charCodeAt(0));
+const canFaceID = !!(window.PublicKeyCredential && navigator.credentials);
+
+function showLogin() {
+  $("#appView").classList.add("hide"); $("#loginView").classList.remove("hide");
+  const t = store.get(TICKET);
+  $("#faceBtn").classList.toggle("hide", !(canFaceID && t));
+}
 function showApp() {
   $("#loginView").classList.add("hide"); $("#appView").classList.remove("hide");
   const h = new Date().getHours();
   $("#hello").textContent = (h < 12 ? "Good morning" : h < 17 ? "Good afternoon" : "Good evening") + "! What do you want to do?";
+  $("#faceSetup").classList.toggle("hide", !canFaceID || !!store.get(TICKET));
   go(location.hash.slice(1) || "home");
 }
 $("#loginForm").addEventListener("submit", async e => {
   e.preventDefault();
   const btn = e.target.querySelector("button"); busy(btn, true, "Checking…"); $("#loginErr").textContent = "";
-  try { await api("login", "POST", { password: $("#pw").value }); $("#pw").value = ""; showApp(); }
-  catch (err) { $("#loginErr").textContent = err.message; }
+  try {
+    await api("login", "POST", { username: $("#un").value, password: $("#pw").value });
+    $("#pw").value = ""; showApp();
+    if (canFaceID && !store.get(TICKET)) offerFaceID();
+  } catch (err) { $("#loginErr").textContent = err.message; }
+  busy(btn, false);
+});
+
+function offerFaceID() {
+  $("#sheetBody").innerHTML = `
+    <div style="text-align:center;font-size:54px">🙂</div>
+    <h2 style="text-align:center">Use Face ID next time?</h2>
+    <p class="muted" style="text-align:center">Skip typing the password on this phone. Just look at it to log in.</p>
+    <button class="btn green" id="fYes">Yes, turn on Face ID</button>
+    <button class="textlink" id="fNo" style="color:var(--muted)">Not now</button>`;
+  openSheet();
+  $("#fNo").onclick = closeSheet;
+  $("#fYes").onclick = () => setupFaceID($("#fYes"));
+}
+$("#faceSetup").addEventListener("click", offerFaceID);
+
+async function setupFaceID(btn) {
+  busy(btn, true, "Waiting for Face ID…");
+  try {
+    const { challenge } = await api("passkey");
+    const cred = await navigator.credentials.create({ publicKey: {
+      challenge: new TextEncoder().encode(challenge),
+      rp: { name: "USA Liquidation Admin", id: location.hostname },
+      user: { id: crypto.getRandomValues(new Uint8Array(16)), name: "USA Liquidation", displayName: "USA Liquidation Admin" },
+      pubKeyCredParams: [{ type: "public-key", alg: -7 }, { type: "public-key", alg: -257 }],
+      authenticatorSelection: { residentKey: "preferred", userVerification: "required" },
+      attestation: "none", timeout: 60000,
+    } });
+    const r = cred.response;
+    if (!r.getPublicKey) throw new Error("This phone is too old for Face ID login.");
+    const out = await api("passkey", "POST", { op: "register", credId: cred.id, clientDataJSON: b64u(r.clientDataJSON),
+      publicKey: b64u(r.getPublicKey()), alg: r.getPublicKeyAlgorithm() });
+    store.set(TICKET, JSON.stringify({ ticket: out.ticket, id: cred.id }));
+    closeSheet(); $("#faceSetup").classList.add("hide"); toast("✅ Face ID is on for this phone.");
+  } catch (e) { busy(btn, false); toast(e.name === "NotAllowedError" ? "Face ID was cancelled." : e.message, 4000); }
+}
+
+$("#faceBtn").addEventListener("click", async () => {
+  const btn = $("#faceBtn"); busy(btn, true, "Looking…"); $("#loginErr").textContent = "";
+  try {
+    const saved = JSON.parse(store.get(TICKET));
+    const { challenge } = await api("passkey");
+    const a = await navigator.credentials.get({ publicKey: {
+      challenge: new TextEncoder().encode(challenge), rpId: location.hostname,
+      allowCredentials: [{ type: "public-key", id: fromB64u(saved.id) }], userVerification: "required", timeout: 60000,
+    } });
+    await api("passkey", "POST", { op: "login", ticket: saved.ticket, credId: a.id,
+      clientDataJSON: b64u(a.response.clientDataJSON), authenticatorData: b64u(a.response.authenticatorData), signature: b64u(a.response.signature) });
+    showApp();
+  } catch (e) {
+    if (/turned off/.test(e.message)) store.set(TICKET, null);
+    $("#loginErr").textContent = e.name === "NotAllowedError" ? "Face ID was cancelled. Try again or use your password." : e.message;
+    showLogin();
+  }
   busy(btn, false);
 });
 $("#logout").addEventListener("click", async () => { if (!confirm("Log out?")) return; await api("login", "DELETE").catch(() => {}); showLogin(); });
