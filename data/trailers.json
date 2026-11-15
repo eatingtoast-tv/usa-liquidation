@@ -1,4 +1,22 @@
 {
   "_note": "Synced from Notion > Website > Food Trailers",
-  "items": []
+  "items": [
+    {
+      "id": "419bc49a-f653-8180-a926-f33e3e7006de",
+      "name": "Black Concession Trailer",
+      "status": "In Stock",
+      "price": "Call for price",
+      "photo": "images/notion/f33e3e7006de-0-1db224ec04.jpg",
+      "photos": [
+        "images/notion/f33e3e7006de-0-1db224ec04.jpg"
+      ],
+      "specs": [
+        "Large glass serving window",
+        "Side entry door",
+        "Single axle, easy to tow",
+        "Ready for your build-out"
+      ],
+      "description": "Sleek black concession trailer with a wide serving window. Text or call us for price and details."
+    }
+  ]
 }
