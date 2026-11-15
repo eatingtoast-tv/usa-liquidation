@@ -140,7 +140,7 @@ function drawItems() {
   const list = items.filter(i => i.status === filter && (!q || i.name.toLowerCase().includes(q)));
   $("#itemList").innerHTML = list.length ? list.map(i => `
     <div class="item is-${esc(i.status).replace(" ", "")}" data-edit="${i.id}">
-      <img src="${esc(i.photo) || "/images/logo-color.png"}" loading="lazy" alt="">
+      <img src="${esc(i.photo) || "/logo.png"}" loading="lazy" alt="">
       <div class="info"><b>${esc(i.name)}</b><span>${money(i.price)}</span>${i.status === "On Hold" ? "<em>ON HOLD</em>" : ""}</div>
       ${i.status === "Sold" ? `<button class="sold" data-quick="Available">Undo</button>` : `<button class="sold" data-quick="Sold">Sold ✓</button>`}
     </div>`).join("") : `<p class="muted" style="text-align:center;padding:30px 0">${q ? "Nothing matches that." : "Nothing here."}</p>`;
@@ -247,7 +247,7 @@ async function loadTrailers() {
     trailers = (await api("trailers")).items;
     $("#trailerList").innerHTML = trailers.length ? trailers.map(t => `
       <div class="item is-${esc(t.status).replace(" ", "")}" data-tedit="${t.id}">
-        <img src="${esc(t.photo) || "/images/logo-color.png"}" alt="">
+        <img src="${esc(t.photo) || "/logo.png"}" alt="">
         <div class="info"><b>${esc(t.name)}</b><span>${money(t.price)}</span><em>${esc(t.status).toUpperCase()}</em></div>
       </div>`).join("") : `<div class="card"><p class="muted">No trailers on the website yet.</p></div>`;
   } catch (e) { $("#trailerList").innerHTML = `<p class="muted">${esc(e.message)}</p>`; }

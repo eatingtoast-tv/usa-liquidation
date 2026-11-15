@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="USA Admin">
+<meta name="theme-color" content="#F7F3EC">
+<link rel="apple-touch-icon" href="/logo.png">
+<title>USA Liquidation Admin</title>
+<style>
+  :root { --bg:#F7F3EC; --card:#fff; --ink:#16213A; --muted:#6B7280; --line:#ECE6DC; --brand:#1B2B57; --red:#C62032; --green:#2F7D4F; --amber:#B7791F; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.4 -apple-system, system-ui, sans-serif; }
+  body { padding:env(safe-area-inset-top) 0 calc(env(safe-area-inset-bottom) + 24px); }
+  .wrap { max-width:520px; margin:0 auto; padding:0 18px; }
+  .hide { display:none !important; }
+
+  /* top bar */
+  .bar { display:flex; align-items:center; gap:10px; padding:14px 0 8px; min-height:60px; }
+  .bar h1 { flex:1; margin:0; font-size:24px; font-weight:800; letter-spacing:-.3px; }
+  .back { border:0; background:#fff; width:44px; height:44px; border-radius:50%; font-size:22px; color:var(--brand); box-shadow:0 1px 3px #0001; }
+  .link { border:0; background:none; color:var(--muted); font-size:15px; padding:8px; }
+
+  /* home tiles */
+  .hello { color:var(--muted); margin:2px 0 18px; font-size:17px; }
+  .tile:active, .btn:active, .item:active { transform:scale(.98); }
+  .tile { transition:transform .1s; display:flex; align-items:center; gap:16px; width:100%; text-align:left; border:0; background:var(--card); border-radius:20px; padding:20px; margin-bottom:12px; box-shadow:0 1px 3px #0000000d; font-size:20px; font-weight:700; color:var(--ink); }
+  .tile .ic { width:58px; height:58px; border-radius:16px; display:grid; place-items:center; font-size:30px; flex:none; }
+  .tile small { display:block; font-size:15px; font-weight:500; color:var(--muted); margin-top:2px; }
+  .tile.main { background:var(--red); color:#fff; } .tile.main small { color:#ffffffd0; } .tile.main .ic { background:#ffffff26; }
+
+  /* cards + forms */
+  .card { background:var(--card); border-radius:20px; padding:18px; margin-bottom:14px; box-shadow:0 1px 3px #0000000d; }
+  h2 { margin:0 0 4px; font-size:20px; }
+  .muted { color:var(--muted); font-size:15px; margin:0; }
+  label { display:block; font-size:15px; color:var(--muted); margin:16px 0 6px; font-weight:600; }
+  input, select, textarea { width:100%; font-size:18px; padding:14px; border:1.5px solid var(--line); border-radius:14px; background:#fff; color:var(--ink); font-family:inherit; -webkit-appearance:none; appearance:none; }
+  select { background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%236B7280' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center; padding-right:40px; }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:var(--brand); }
+  textarea { min-height:90px; resize:vertical; }
+  .price { position:relative; } .price span { position:absolute; left:16px; top:50%; transform:translateY(-50%); font-size:26px; font-weight:800; color:var(--muted); }
+  .price input { font-size:28px; font-weight:800; padding-left:38px; }
+  .row { display:flex; gap:10px; } .row > * { flex:1; min-width:0; }
+
+  .btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; border:0; border-radius:16px; padding:18px; font-size:19px; font-weight:800; background:var(--brand); color:#fff; margin-top:16px; }
+  .btn.red { background:var(--red); } .btn.green { background:var(--green); }
+  .btn.ghost { background:transparent; color:var(--brand); border:2px solid var(--line); }
+  .btn:disabled { opacity:.55; }
+  .camera { padding:42px 18px; font-size:22px; flex-direction:column; gap:6px; margin:0; border-radius:20px; }
+  .camera b { font-size:56px; line-height:1; }
+  .textlink { display:block; width:100%; border:0; background:none; color:var(--brand); font-size:17px; font-weight:600; padding:16px; }
+
+  details { margin-top:16px; border-top:1px solid var(--line); padding-top:4px; }
+  summary { font-size:16px; font-weight:600; color:var(--brand); padding:12px 0 2px; list-style:none; }
+  summary::-webkit-details-marker { display:none; } summary::after { content:" ▾"; } details[open] summary::after { content:" ▴"; }
+
+  .thumbs { display:flex; gap:10px; overflow-x:auto; padding:4px 2px 2px; }
+  .thumbs div { position:relative; flex:none; } .thumbs img { width:110px; height:110px; object-fit:cover; border-radius:14px; }
+  .thumbs button { position:absolute; top:6px; right:6px; width:28px; height:28px; border-radius:50%; border:0; background:#000a; color:#fff; font-size:16px; }
+  .thumbs .addmore { width:110px; height:110px; border-radius:14px; border:2px dashed var(--line); background:#fff; color:var(--muted); font-size:15px; font-weight:600; position:static; }
+  .ai { font-size:15px; color:var(--brand); background:#EEF1F8; border-radius:12px; padding:12px 14px; margin-top:14px; display:flex; gap:10px; align-items:center; }
+
+  /* item list */
+  .search { margin-bottom:12px; }
+  .chips { display:flex; gap:8px; margin-bottom:12px; } .chips button { flex:1; border:0; background:#fff; border-radius:12px; padding:11px 4px; font-size:15px; font-weight:700; color:var(--muted); }
+  .chips button.on { background:var(--brand); color:#fff; }
+  .item { display:flex; gap:12px; align-items:center; background:#fff; border-radius:18px; padding:10px; margin-bottom:10px; box-shadow:0 1px 3px #0000000d; }
+  .item img { width:72px; height:72px; object-fit:cover; border-radius:12px; background:#f1ede6; flex:none; }
+  .item .info { flex:1; min-width:0; } .item .info b { display:block; font-size:17px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .item .info span { font-size:17px; font-weight:700; color:var(--green); }
+  .item .info em { font-style:normal; font-size:13px; font-weight:700; color:var(--muted); margin-left:6px; }
+  .item .sold { border:0; border-radius:12px; padding:12px 14px; font-size:15px; font-weight:800; background:#E6F2EA; color:var(--green); flex:none; }
+  .item.is-Sold .sold { background:#F1F1F1; color:var(--muted); }
+  .item.is-Sold img { filter:grayscale(1); opacity:.6; }
+
+  .seg { display:flex; gap:8px; } .seg button { flex:1; padding:14px 4px; border-radius:14px; border:2px solid var(--line); background:#fff; font-weight:800; font-size:16px; color:var(--ink); }
+  .seg button.on { border-color:var(--brand); background:var(--brand); color:#fff; }
+  .seg button.on[data-s="Sold"] { border-color:var(--green); background:var(--green); }
+
+  .day { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+  .day:last-child { border:0; }
+  .day b { flex:1; font-size:18px; } .day.closed b { color:var(--muted); text-decoration:line-through; }
+  .day .price { width:110px; flex:none; } .day .price input { font-size:20px; padding:10px 10px 10px 30px; } .day .price span { font-size:18px; left:12px; }
+  .switch { position:relative; width:52px; height:32px; flex:none; } .switch input { opacity:0; width:0; height:0; position:absolute; }
+  .switch i { position:absolute; inset:0; background:#D9D4CB; border-radius:20px; transition:.2s; } .switch i::after { content:""; position:absolute; width:26px; height:26px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 2px #0003; }
+  .switch input:checked + i { background:var(--green); } .switch input:checked + i::after { left:23px; }
+
+  #toast { position:fixed; left:18px; right:18px; bottom:calc(24px + env(safe-area-inset-bottom)); max-width:484px; margin:0 auto; background:var(--ink); color:#fff; padding:16px; border-radius:16px; font-weight:700; text-align:center; display:none; z-index:30; font-size:17px; }
+  #sheet { position:fixed; inset:0; background:#0008; display:none; align-items:flex-end; z-index:20; }
+  #sheet .card { width:100%; max-width:520px; margin:0 auto; border-radius:24px 24px 0 0; padding-bottom:calc(22px + env(safe-area-inset-bottom)); max-height:92vh; overflow:auto; }
+  #sheet .grab { width:44px; height:5px; border-radius:3px; background:#ddd; margin:-6px auto 12px; }
+
+  #login { padding-top:14vh; text-align:center; } #login img { width:96px; border-radius:20px; } #login h1 { font-size:26px; margin:16px 0 4px; }
+  .spin { width:20px; height:20px; border:3px solid #ffffff66; border-top-color:#fff; border-radius:50%; animation:s .8s linear infinite; flex:none; }
+  .ai .spin { border-color:#1B2B5733; border-top-color:var(--brand); }
+  @keyframes s { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginView" class="wrap hide">
+  <div id="login">
+    <img src="/logo.png" alt="">
+    <h1>Welcome back</h1>
+    <p class="muted">Log in to manage the website.</p>
+    <button class="btn hide" id="faceBtn" type="button" style="margin-top:22px;padding:20px">🙂 Log in with Face ID</button>
+    <form id="loginForm" class="card" style="margin-top:16px;text-align:left">
+      <label for="un" style="margin-top:0">Username</label>
+      <input id="un" type="text" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" required>
+      <label for="pw">Password</label>
+      <input id="pw" type="password" autocomplete="current-password" required>
+      <button class="btn" type="submit">Log in</button>
+      <p id="loginErr" class="muted" style="color:var(--red);text-align:center;margin-top:12px"></p>
+    </form>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="appView" class="wrap hide">
+
+  <!-- HOME -->
+  <section id="s-home">
+    <div class="bar"><img src="/logo.png" alt="" style="width:46px;height:46px;border-radius:12px;background:#fff;object-fit:contain;padding:4px;box-shadow:0 1px 3px #0001"><h1>USA Liquidation</h1><button class="link" id="logout">Log out</button></div>
+    <p class="hello" id="hello">What do you want to do?</p>
+    <button class="tile main" data-go="add"><span class="ic">📷</span><span>Add something new<small>Take a picture, set a price</small></span></button>
+    <button class="tile" data-go="items"><span class="ic" style="background:#E6F2EA">✅</span><span>Mark sold or change price<small>Everything on the website</small></span></button>
+    <button class="tile" data-go="bins"><span class="ic" style="background:#FBF0DC">🧺</span><span>Bins<small>Today's photo &amp; prices</small></span></button>
+    <button class="tile" data-go="trailers"><span class="ic" style="background:#EEF1F8">🚚</span><span>Food trailers<small>Add or update trailers</small></span></button>
+    <p class="muted" style="text-align:center;margin-top:18px">Changes show on the website in a minute or two.</p>
+    <button class="textlink hide" id="faceSetup" style="font-size:15px">🙂 Turn on Face ID login for this phone</button>
+  </section>
+
+  <!-- ADD -->
+  <section id="s-add" class="hide">
+    <div class="bar"><button class="back" data-go="home">‹</button><h1>Add something new</h1></div>
+    <div id="addStep1">
+      <button class="btn red camera" data-pick="add" data-capture="1"><b>📷</b>Take a picture</button>
+      <button class="textlink" data-pick="add">or choose from your photos</button>
+    </div>
+    <div id="addStep2" class="hide">
+      <div class="card">
+        <div class="thumbs" id="addThumbs"></div>
+        <div class="ai hide" id="aiNote"></div>
+      </div>
+      <form class="card" id="addForm">
+        <label style="margin-top:0">What is it?</label>
+        <input name="name" required placeholder="e.g. Gray Sectional Sofa">
+        <label>Price</label>
+        <div class="price"><span>$</span><input name="price" type="number" inputmode="decimal" placeholder="0"></div>
+        <details>
+          <summary>More details (optional)</summary>
+          <label>Store price (what it sells for new)</label>
+          <div class="price"><span>$</span><input name="retail" type="number" inputmode="decimal" placeholder="optional"></div>
+          <div class="row">
+            <div><label>Type</label><select name="category">
+              <option>Living Room</option><option>Bedroom</option><option>Dining</option><option>Office</option><option>Outdoor</option><option>Decor &amp; Other</option><option>Gym Equipments</option></select></div>
+            <div><label>Condition</label><select name="condition">
+              <option>New</option><option>New - Open Box</option><option selected>Like New</option><option>Good</option><option>Fair</option></select></div>
+          </div>
+          <label>Size</label><input name="size" placeholder="e.g. Queen, 84&quot; wide">
+          <label>Description</label><textarea name="description"></textarea>
+        </details>
+        <button class="btn green" type="submit" id="addSave">Put it on the website</button>
+      </form>
+      <button class="textlink" id="addCancel" style="color:var(--muted)">Start over</button>
+    </div>
+  </section>
+
+  <!-- ITEMS -->
+  <section id="s-items" class="hide">
+    <div class="bar"><button class="back" data-go="home">‹</button><h1>Everything for sale</h1></div>
+    <input class="search" id="q" type="search" placeholder="🔍  Search">
+    <div class="chips" id="statusFilter">
+      <button class="on" data-f="Available">For sale</button><button data-f="On Hold">On hold</button><button data-f="Sold">Sold</button>
+    </div>
+    <div id="itemList"><p class="muted">Loading…</p></div>
+  </section>
+
+  <!-- BINS -->
+  <section id="s-bins" class="hide">
+    <div class="bar"><button class="back" data-go="home">‹</button><h1>Bins</h1></div>
+    <div class="card">
+      <h2 id="binsTitle">Today's bins photo</h2>
+      <p class="muted">Shows on the website so people know what's in the bins.</p>
+      <div class="thumbs" id="binsThumbs" style="margin-top:12px"></div>
+      <button class="btn red" data-pick="bins" data-capture="1">📷 Take bins picture</button>
+      <button class="textlink" data-pick="bins">or choose from your photos</button>
+      <button class="btn green hide" id="binsPhotoSave">Save picture</button>
+      <details><summary>Picture is for a different day?</summary><label>Day</label><select id="binDay"></select></details>
+    </div>
+    <div class="card">
+      <h2>Prices</h2>
+      <p class="muted">Turn a day off if you're closed.</p>
+      <div id="binDays" style="margin-top:6px"><p class="muted">Loading…</p></div>
+      <button class="btn" id="binsSave">Save prices</button>
+    </div>
+  </section>
+
+  <!-- TRAILERS -->
+  <section id="s-trailers" class="hide">
+    <div class="bar"><button class="back" data-go="home">‹</button><h1>Food trailers</h1></div>
+    <div id="trailerList"><p class="muted">Loading…</p></div>
+    <button class="btn red" id="showTrailerForm">＋ Add a trailer</button>
+    <form class="card hide" id="trailerForm" style="margin-top:14px">
+      <h2>New trailer</h2>
+      <div class="thumbs" id="trailerThumbs" style="margin-top:10px"></div>
+      <button type="button" class="btn ghost" data-pick="trailer">📷 Add pictures</button>
+      <label>Name</label><input name="name" required placeholder="e.g. 16 ft Concession Trailer">
+      <label>Price</label><div class="price"><span>$</span><input name="price" type="number" inputmode="decimal"></div>
+      <div class="row">
+        <div><label>Size</label><select name="size"><option value="">—</option><option>8-12 ft</option><option>14-16 ft</option><option>18-20 ft</option><option>24 ft+</option></select></div>
+        <div><label>Status</label><select name="status"><option>In Stock</option><option>Coming Soon</option><option>Sold</option></select></div>
+      </div>
+      <label>What's inside</label><textarea name="features" placeholder="Hood, fryer, sinks, generator…"></textarea>
+      <details><summary>Description (optional)</summary><textarea name="description" style="margin-top:10px"></textarea></details>
+      <button class="btn green" type="submit">Put it on the website</button>
+    </form>
+    <div class="card" style="margin-top:14px">
+      <h2>Photos of trailers we've built</h2>
+      <p class="muted">Goes in the gallery on the trailers page.</p>
+      <div class="thumbs" id="galleryThumbs" style="margin-top:12px"></div>
+      <button class="btn ghost" data-pick="gallery">🖼️ Choose pictures</button>
+      <div id="galleryMore" class="hide">
+        <label>Caption (optional)</label><input id="galleryCaption" placeholder="e.g. BBQ trailer for Mike's Smokehouse">
+        <button class="btn green" id="gallerySave">Add to gallery</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="sheet"><div class="card"><div class="grab"></div><div id="sheetBody"></div></div></div>
+<div id="toast"></div>
+<input type="file" id="filePick" accept="image/*" multiple class="hide">
+
+<script src="/admin.js?v=5"></script>
+</body>
+</html>
