@@ -18,6 +18,120 @@
   ],
   "items": [
     {
+      "id": "419bc49a-f653-812f-92e8-d7774f9b7166",
+      "name": "White Stone Electric Fireplace",
+      "category": "Living Room",
+      "price": 425,
+      "retail": null,
+      "condition": "New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Add cozy ambiance to your space with this white electric fireplace featuring realistic faux stone detailing. Perfect for warming up your living room with modern style.",
+      "photos": [
+        "images/notion/d7774f9b7166-0-6bdee8b2c7.jpg"
+      ]
+    },
+    {
+      "id": "419bc49a-f653-81e4-b852-fcd62e0b244c",
+      "name": "White Faux Stone Electric Fireplace",
+      "category": "Living Room",
+      "price": 0,
+      "retail": null,
+      "condition": "New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Add cozy ambiance to your living space with this stylish electric fireplace featuring a classic white mantel and faux stone surround. It boasts realistic glowing faux logs and flames for a warm, inviting atmosphere without the hassle of a real fire.",
+      "photos": [
+        "images/notion/fcd62e0b244c-0-d96afd2e12.jpg",
+        "images/notion/fcd62e0b244c-1-8da220670e.jpg"
+      ]
+    },
+    {
+      "id": "419bc49a-f653-81ca-a422-e3aeedcd7f84",
+      "name": "Dark Wood Electric Fireplace Media Console",
+      "category": "Living Room",
+      "price": 499,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Add warmth and style to your living space with this beautiful dark wood media console featuring a built-in electric fireplace and convenient side cabinets with glass grid doors.",
+      "photos": [
+        "images/notion/e3aeedcd7f84-0-f3f1b565ae.jpg",
+        "images/notion/e3aeedcd7f84-1-5b7dd522ad.jpg"
+      ]
+    },
+    {
+      "id": "419bc49a-f653-81f3-b5cc-f69d38974d16",
+      "name": "Flocked Pre-Lit Christmas Tree",
+      "category": "Decor & Other",
+      "price": 199,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Bring home the magic of the holidays with this beautiful snow-flocked Christmas tree featuring warm pre-lit lights. It adds a cozy, winter wonderland feel to your seasonal decor.",
+      "photos": [
+        "images/notion/f69d38974d16-0-d1b952012a.jpg",
+        "images/notion/f69d38974d16-1-1ccd87f260.jpg"
+      ]
+    },
+    {
+      "id": "419bc49a-f653-81d7-ac87-df3f75885b23",
+      "name": "Black ProForm Treadmill",
+      "category": "Gym Equipments",
+      "price": 499,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Get a great cardio workout at home with this sleek black treadmill featuring an integrated digital console and comfortable running belt.",
+      "photos": [
+        "images/notion/df3f75885b23-0-f20cfb5129.jpg",
+        "images/notion/df3f75885b23-1-5e9666c285.jpg",
+        "images/notion/df3f75885b23-2-a6e34e4520.jpg"
+      ]
+    },
+    {
+      "id": "419bc49a-f653-8145-be9e-d1fcdb4558e4",
+      "name": "NordicTrack Black Treadmill",
+      "category": "Gym Equipments",
+      "price": 499,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Stay active at home with this sleek black NordicTrack treadmill, featuring a digital console and sturdy frame for your daily workouts.",
+      "photos": [
+        "images/notion/d1fcdb4558e4-0-1a739a46f8.jpg",
+        "images/notion/d1fcdb4558e4-1-07292b57c7.jpg",
+        "images/notion/d1fcdb4558e4-2-2ec550d2ee.jpg"
+      ]
+    },
+    {
+      "id": "419bc49a-f653-812c-99e6-e18ff68e592e",
+      "name": "Likesmart Digital Treadmill",
+      "category": "Gym Equipments",
+      "price": 1100,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-15",
+      "dims": "—",
+      "description": "Stay active at home with this sleek black treadmill featuring an integrated digital screen and convenient console cup holders. Perfect for your daily workouts and cardio routines.",
+      "photos": [
+        "images/notion/e18ff68e592e-0-4860c14306.jpg",
+        "images/notion/e18ff68e592e-1-d00e6aafb4.jpg",
+        "images/notion/e18ff68e592e-2-2b622c398f.jpg"
+      ]
+    },
+    {
       "id": "417bc49a-f653-8169-9f56-db63e8a966b9",
       "name": "Brown Leather Recliner",
       "category": "Living Room",
