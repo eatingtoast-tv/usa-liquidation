@@ -26,7 +26,8 @@
 
   /* home tiles */
   .hello { color:var(--muted); margin:2px 0 18px; font-size:17px; }
-  .tile { display:flex; align-items:center; gap:16px; width:100%; text-align:left; border:0; background:var(--card); border-radius:20px; padding:20px; margin-bottom:12px; box-shadow:0 1px 3px #0000000d; font-size:20px; font-weight:700; color:var(--ink); }
+  .tile:active, .btn:active, .item:active { transform:scale(.98); }
+  .tile { transition:transform .1s; display:flex; align-items:center; gap:16px; width:100%; text-align:left; border:0; background:var(--card); border-radius:20px; padding:20px; margin-bottom:12px; box-shadow:0 1px 3px #0000000d; font-size:20px; font-weight:700; color:var(--ink); }
   .tile .ic { width:58px; height:58px; border-radius:16px; display:grid; place-items:center; font-size:30px; flex:none; }
   .tile small { display:block; font-size:15px; font-weight:500; color:var(--muted); margin-top:2px; }
   .tile.main { background:var(--red); color:#fff; } .tile.main small { color:#ffffffd0; } .tile.main .ic { background:#ffffff26; }
@@ -120,7 +121,7 @@
 
   <!-- HOME -->
   <section id="s-home">
-    <div class="bar"><h1>USA Liquidation</h1><button class="link" id="logout">Log out</button></div>
+    <div class="bar"><img src="/images/logo-color.png" alt="" style="width:46px;height:46px;border-radius:12px;background:#fff;object-fit:contain;padding:4px;box-shadow:0 1px 3px #0001"><h1>USA Liquidation</h1><button class="link" id="logout">Log out</button></div>
     <p class="hello" id="hello">What do you want to do?</p>
     <button class="tile main" data-go="add"><span class="ic">📷</span><span>Add something new<small>Take a picture, set a price</small></span></button>
     <button class="tile" data-go="items"><span class="ic" style="background:#E6F2EA">✅</span><span>Mark sold or change price<small>Everything on the website</small></span></button>
@@ -231,6 +232,6 @@
 <div id="toast"></div>
 <input type="file" id="filePick" accept="image/*" multiple class="hide">
 
-<script src="/admin/admin.js?v=2"></script>
+<script src="/admin/admin.js?v=3"></script>
 </body>
 </html>
