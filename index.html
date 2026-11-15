@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=1128" />
+<link rel="stylesheet" href="css/style.css?v=1129" />
 </head>
 <body data-page="home">
 <div id="site-header"></div>
@@ -32,11 +32,11 @@
           <div><strong>Tue–Sun</strong>Open 6 Days</div>
         </div>
       </div>
-      <!-- TODO: swap for real store photos -->
-      <div class="collage">
-        <div><img src="images/temp/u11.jpg" alt="Living room furniture" /></div>
-        <img src="images/temp/u8.jpg" alt="Leather sofa" />
-        <img src="images/temp/u9.jpg" alt="Dining set" />
+      <!-- filled with the 3 newest available pieces from Notion (fallback photos below) -->
+      <div class="collage" id="heroCollage">
+        <div><img class="hc" src="images/temp/u11.jpg" alt="Living room furniture" /></div>
+        <img class="hc" src="images/temp/u8.jpg" alt="Leather sofa" />
+        <img class="hc" src="images/temp/u9.jpg" alt="Dining set" />
       </div>
     </div>
   </section>
@@ -57,7 +57,7 @@
         </a>
         <a class="dept" href="bins.html">
           <span class="pill">New Price Every Day</span>
-          <img src="images/temp/u5.jpg" alt="Liquidation bins" />
+          <img id="binsDeptImg" src="images/temp/u5.jpg" alt="Liquidation bins" />
           <div class="body"><h3>Bins</h3><p>Dig through bins of brand-name returns and overstock. Fresh bins Saturday, and prices drop through the week.</p><span class="go">See Bin Prices →</span></div>
         </a>
         <a class="dept" href="trailers.html">
@@ -132,8 +132,22 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="js/site.js?v=1128"></script>
+<script src="js/site.js?v=1129"></script>
 <script>
+  // Hero: newest 3 available furniture pieces (Notion order = newest first). Tap one to open it.
+  fetch("data/furniture.json?t=" + Date.now()).then(r => r.json()).then(d => {
+    const items = (d.items || []).filter(i => (i.status || "Available") === "Available" && i.photos && i.photos.length);
+    items.sort((a, b) => new Date(b.added) - new Date(a.added));
+    document.querySelectorAll("#heroCollage .hc").forEach((img, n) => {
+      const it = items[n]; if (!it) return;
+      img.src = it.photos[0]; img.alt = it.name; img.style.cursor = "pointer";
+      img.onclick = () => { location.href = "furniture.html#item=" + it.id; };
+    });
+  }).catch(() => {});
+  // Bins card: today's bins photo from Notion
+  fetch("data/bins.json?t=" + Date.now()).then(r => r.json()).then(b => {
+    if (b.photo) document.getElementById("binsDeptImg").src = b.photo;
+  }).catch(() => {});
   fetch("data/reviews.json").then(r => r.json()).then(d => {
     document.getElementById("gLink").href = d.google_url;
     document.getElementById("reviews").innerHTML = d.reviews.slice(0, 3).map(r => `
