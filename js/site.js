@@ -57,7 +57,7 @@ document.getElementById("site-header").outerHTML = `
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mMenu"><span></span><span></span><span></span></button>
   </div>
   <nav class="m-menu" id="mMenu" hidden>
-    <div class="wrap">
+    <div class="m-panel">
       <div class="m-menu-cta">
         <a class="btn btn-primary" href="${smsLink("Hi USA Liquidation! I have a question.")}">${icon.chat} Text Us</a>
         <a class="btn btn-ghost" href="${telLink()}">${icon.phone} Call ${SITE.phoneDisplay}</a>
@@ -69,9 +69,14 @@ document.getElementById("site-header").outerHTML = `
 // phone menu (☰)
 {
   const b = document.getElementById("burger"), m = document.getElementById("mMenu");
-  const set = open => { m.hidden = !open; b.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.setAttribute("aria-label", open ? "Close menu" : "Open menu"); };
+  document.body.appendChild(m); // float over the page (outside the header's own blur) instead of pushing it down
+  const set = open => {
+    m.hidden = !open; document.documentElement.classList.toggle("menu-open", open);
+    b.classList.toggle("open", open); b.setAttribute("aria-expanded", open); b.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
   b.addEventListener("click", () => set(m.hidden));
-  m.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+  m.addEventListener("click", e => { if (e.target.closest("a") || !e.target.closest(".m-panel")) set(false); }); // link or tap on the blur closes it
+  addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
   addEventListener("resize", () => { if (innerWidth > 860) set(false); });
 }
 
