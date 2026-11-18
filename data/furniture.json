@@ -18,6 +18,38 @@
   ],
   "items": [
     {
+      "id": "41cbc49a-f653-81af-a86f-ccfe35d7c52a",
+      "name": "Coffee table",
+      "category": "Living Room",
+      "price": 25,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-18",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/ccfe35d7c52a-0-0fccebc7b9.jpg",
+        "images/notion/ccfe35d7c52a-1-ded5ab7e4d.jpg"
+      ]
+    },
+    {
+      "id": "41cbc49a-f653-8158-9eb9-ef90b0dbb6a0",
+      "name": "12” Christmas tree",
+      "category": "Living Room",
+      "price": 250,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-18",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/ef90b0dbb6a0-0-944d7de89c.jpg",
+        "images/notion/ef90b0dbb6a0-1-8064ca0fd7.jpg"
+      ]
+    },
+    {
       "id": "419bc49a-f653-812f-92e8-d7774f9b7166",
       "name": "White Stone Electric Fireplace",
       "category": "Living Room",
