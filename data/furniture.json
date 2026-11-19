@@ -18,6 +18,30 @@
   ],
   "items": [
     {
+      "id": "41dbc49a-f653-8130-8e3c-ed9206a6de61",
+      "name": "Rugs 5x7",
+      "category": "Office",
+      "price": 75,
+      "retail": null,
+      "condition": "Good",
+      "status": "Available",
+      "added": "2026-11-19",
+      "dims": "—",
+      "description": "A reliable black computer mouse resting on a mousepad, perfect for everyday office or home use.",
+      "photos": [
+        "images/notion/ed9206a6de61-0-beae9b03d4.jpg",
+        "images/notion/ed9206a6de61-1-1f47c3a863.jpg",
+        "images/notion/ed9206a6de61-2-2587ee1ee3.jpg",
+        "images/notion/ed9206a6de61-3-b82d3fd3a0.jpg",
+        "images/notion/ed9206a6de61-4-d5ab5e7b66.jpg",
+        "images/notion/ed9206a6de61-5-d6f566249c.jpg",
+        "images/notion/ed9206a6de61-6-8f17122d5b.jpg",
+        "images/notion/ed9206a6de61-7-9341526ed3.jpg",
+        "images/notion/ed9206a6de61-8-d306438ce5.jpg",
+        "images/notion/ed9206a6de61-9-516c94b2a3.jpg"
+      ]
+    },
+    {
       "id": "41cbc49a-f653-81af-a86f-ccfe35d7c52a",
       "name": "Coffee table",
       "category": "Living Room",
