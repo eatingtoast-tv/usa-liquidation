@@ -18,6 +18,63 @@
   ],
   "items": [
     {
+      "id": "41dbc49a-f653-8107-9010-fb59cbd93f0e",
+      "name": "Sofa, Thamesville",
+      "category": "Living Room",
+      "price": 550,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-19",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/fb59cbd93f0e-0-418b67caf1.jpg",
+        "images/notion/fb59cbd93f0e-1-dae549c3c1.jpg",
+        "images/notion/fb59cbd93f0e-2-00f686f2c5.jpg",
+        "images/notion/fb59cbd93f0e-3-3f3181dab1.jpg"
+      ]
+    },
+    {
+      "id": "41dbc49a-f653-814f-838e-d3eabad1a2c8",
+      "name": "Dryers",
+      "category": "Living Room",
+      "price": 250,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-19",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/d3eabad1a2c8-0-67c56ee74c.jpg",
+        "images/notion/d3eabad1a2c8-1-e1b41e2c67.jpg",
+        "images/notion/d3eabad1a2c8-2-9ed88ce12c.jpg",
+        "images/notion/d3eabad1a2c8-3-47b76d0499.jpg",
+        "images/notion/d3eabad1a2c8-4-a06e606e73.jpg",
+        "images/notion/d3eabad1a2c8-5-5a73545ba7.jpg",
+        "images/notion/d3eabad1a2c8-6-e49deed24c.jpg",
+        "images/notion/d3eabad1a2c8-7-e009d8f34d.jpg"
+      ]
+    },
+    {
+      "id": "41dbc49a-f653-8172-9fdc-f2d83bf20148",
+      "name": "Samsung dryer",
+      "category": "Living Room",
+      "price": 450,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-19",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/f2d83bf20148-0-3e16e44c6a.jpg",
+        "images/notion/f2d83bf20148-1-eafbefd74d.jpg",
+        "images/notion/f2d83bf20148-2-ddd76edc8c.jpg"
+      ]
+    },
+    {
       "id": "41dbc49a-f653-8130-8e3c-ed9206a6de61",
       "name": "Rugs 5x7",
       "category": "Office",
