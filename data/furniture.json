@@ -18,6 +18,21 @@
   ],
   "items": [
     {
+      "id": "41ebc49a-f653-812f-ab70-eb4f3c435519",
+      "name": "Christmas tree 12”",
+      "category": "Living Room",
+      "price": 225,
+      "retail": null,
+      "condition": "Like New",
+      "status": "Available",
+      "added": "2026-11-20",
+      "dims": "—",
+      "description": "",
+      "photos": [
+        "images/notion/eb4f3c435519-0-a2b397d1ea.jpg"
+      ]
+    },
+    {
       "id": "41ebc49a-f653-81f0-90de-d6d20adbbbe1",
       "name": "Black Food Trailer",
       "category": "Outdoor",
