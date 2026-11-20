@@ -18,6 +18,21 @@
   ],
   "items": [
     {
+      "id": "41ebc49a-f653-81f0-90de-d6d20adbbbe1",
+      "name": "Black Food Trailer",
+      "category": "Outdoor",
+      "price": 17500,
+      "retail": null,
+      "condition": "New",
+      "status": "Available",
+      "added": "2026-11-20",
+      "dims": "—",
+      "description": "Ready-to-use black food trailer equipped with service windows and a functional layout for starting your mobile business. Perfect for serving treats and meals on the go.",
+      "photos": [
+        "images/notion/d6d20adbbbe1-0-e10ba47448.jpg"
+      ]
+    },
+    {
       "id": "41dbc49a-f653-8107-9010-fb59cbd93f0e",
       "name": "Sofa, Thamesville",
       "category": "Living Room",
